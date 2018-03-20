@@ -1,0 +1,752 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/"
+		xmlns:soap12bind="http://schemas.xmlsoap.org/wsdl/soap12/"
+		xmlns:soapbind="http://schemas.xmlsoap.org/wsdl/soap/"
+		xmlns:tns="http://www.topcredit.md"
+		xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+		xmlns:xsd1="http://www.topcredit.md"
+		name="LoanApplicationService"
+		targetNamespace="http://www.topcredit.md">
+	<types>
+		<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+				xmlns:xs1="http://www.topcredit.md"
+				targetNamespace="http://www.topcredit.md"
+				attributeFormDefault="unqualified"
+				elementFormDefault="qualified">
+			<xs:complexType name="ApplicationFile">
+				<xs:sequence>
+					<xs:element name="name"
+							type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="ApplicationFileSet">
+				<xs:sequence>
+					<xs:element name="applicationFile"
+							type="tns:ApplicationFile"
+							minOccurs="0"
+							maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="ClientData">
+				<xs:sequence>
+					<xs:element name="clientFound"
+							type="xs:boolean"/>
+					<xs:element name="name"
+							type="xs:string"/>
+					<xs:element name="surname"
+							type="xs:string"/>
+					<xs:element name="phoneCell"
+							type="xs:string"/>
+					<xs:element name="loanLimitSum"
+							type="xs:decimal"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="FileAttachment">
+				<xs:sequence>
+					<xs:element name="name"
+							type="xs:string"/>
+					<xs:element name="data"
+							type="xs:base64Binary"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="FileAttachmentSet">
+				<xs:sequence>
+					<xs:element name="fileAttachment"
+							type="tns:FileAttachment"
+							minOccurs="0"
+							maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="LoanApplication">
+				<xs:sequence>
+					<xs:element name="id"
+							type="xs:string"/>
+					<xs:element name="dealerID"
+							type="xs:string"/>
+					<xs:element name="loanProductID"
+							type="xs:string"/>
+					<xs:element name="name"
+							type="xs:string"/>
+					<xs:element name="surname"
+							type="xs:string"/>
+					<xs:element name="idno"
+							type="xs:string"/>
+					<xs:element name="phoneCell"
+							type="xs:string"/>
+					<xs:element name="contact"
+							type="xs:string"/>
+					<xs:element name="contactPhoneCell"
+							type="xs:string"/>
+					<xs:element name="creditTerm"
+							type="xs:unsignedInt"/>
+					<xs:element name="loanPurpose"
+							type="xs:string"/>
+					<xs:element name="totalCost"
+							type="xs:decimal"/>
+					<xs:element name="clientContribution"
+							type="xs:decimal"/>
+					<xs:element name="clientComment"
+							type="xs:string"/>
+					<xs:element name="partnerComment"
+							type="xs:string"/>
+					<xs:element name="fileAttachmentSet"
+							type="tns:FileAttachmentSet"/>
+					<xs:element name="guarantorIDNO"
+							type="xs:string"/>
+					<xs:element name="guarantorName"
+							type="xs:string"/>
+					<xs:element name="guarantorSurname"
+							type="xs:string"/>
+					<xs:element name="personalDataProcessingAgreement"
+							type="xs:boolean"
+							nillable="true"/>
+					<xs:element name="personalDataStoringAgreement"
+							type="xs:boolean"
+							nillable="true"/>
+					<xs:element name="creditHistoryCheckAgreement"
+							type="xs:boolean"
+							nillable="true"/>
+					<xs:element name="creditHistoryReportingAgreement"
+							type="xs:boolean"
+							nillable="true"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="LoanApplicationHeader">
+				<xs:sequence>
+					<xs:element name="id"
+							type="xs:string"/>
+					<xs:element name="date"
+							type="xs:date"/>
+					<xs:element name="number"
+							type="xs:decimal"/>
+					<xs:element name="clientName"
+							type="xs:string"/>
+					<xs:element name="loanAmount"
+							type="xs:decimal"/>
+					<xs:element name="loanCurrency"
+							type="xs:string"/>
+					<xs:element name="loanPurpose"
+							type="xs:string"/>
+					<xs:element name="comment"
+							type="xs:string"/>
+					<xs:element name="applicationState"
+							type="xs:string"/>
+					<xs:element name="applicationStateCode"
+							type="xs:decimal"/>
+					<xs:element name="dealerName"
+							type="xs:string"/>
+					<xs:element name="applicationFileSet"
+							type="tns:ApplicationFileSet"/>
+					<xs:element name="hasNewMessages"
+							type="xs:boolean"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="LoanApplicationHeaderSet">
+				<xs:sequence>
+					<xs:element name="loanApplicationHeader"
+							type="tns:LoanApplicationHeader"
+							minOccurs="0"
+							maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="LoanProductSet">
+				<xs:sequence>
+					<xs:element name="loanProductSetItem"
+							type="tns:LoanProductSetItem"
+							minOccurs="0"
+							maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="LoanProductSetItem">
+				<xs:sequence>
+					<xs:element name="id"
+							type="xs:string"/>
+					<xs:element name="name"
+							type="xs:string"/>
+					<xs:element name="comment"
+							type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="Message">
+				<xs:sequence>
+					<xs:element name="applicationID"
+							type="xs:string"/>
+					<xs:element name="date"
+							type="xs:dateTime"/>
+					<xs:element name="senderName"
+							type="xs:string"/>
+					<xs:element name="text"
+							type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="MessageHeader">
+				<xs:sequence>
+					<xs:element name="applicationID"
+							type="xs:string"/>
+					<xs:element name="newMessages"
+							type="xs:int"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="MessageHeaderSet">
+				<xs:sequence>
+					<xs:element name="messageHeader"
+							type="tns:MessageHeader"
+							minOccurs="0"
+							maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="MessageSet">
+				<xs:sequence>
+					<xs:element name="message"
+							type="tns:Message"
+							minOccurs="0"
+							maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="PaymentSchedule">
+				<xs:sequence>
+					<xs:element name="term"
+							type="xs:int"/>
+					<xs:element name="amount"
+							type="xs:double"/>
+					<xs:element name="currency"
+							type="xs:string"/>
+					<xs:element name="mounthlyPayment"
+							type="xs:double"/>
+					<xs:element name="totalAmountDue"
+							type="xs:double"/>
+					<xs:element name="paymentScheduleRows"
+							type="tns:PaymentScheduleRows"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="PaymentScheduleRow">
+				<xs:sequence>
+					<xs:element name="scheduleDate"
+							type="xs:date"/>
+					<xs:element name="amountDisbursed"
+							type="xs:double"/>
+					<xs:element name="principalAmountDue"
+							type="xs:double"/>
+					<xs:element name="interestAmountDue"
+							type="xs:double"/>
+					<xs:element name="comissionAmountDue"
+							type="xs:double"/>
+					<xs:element name="totalAmountDue"
+							type="xs:double"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="PaymentScheduleRows">
+				<xs:sequence>
+					<xs:element name="paymentScheduleRow"
+							type="tns:PaymentScheduleRow"
+							minOccurs="0"
+							maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="PaymentScheduleSet">
+				<xs:sequence>
+					<xs:element name="paymentSchedule"
+							type="tns:PaymentSchedule"
+							minOccurs="0"
+							maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="authorizeUser">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="user"
+								type="xs:string"/>
+						<xs:element name="password"
+								type="xs:string"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="authorizeUserResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="return"
+								type="xs:string"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="validateLoanApplication">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="user"
+								type="xs:string"/>
+						<xs:element name="password"
+								type="xs:string"/>
+						<xs:element name="loanApplication"
+								type="tns:LoanApplication"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="validateLoanApplicationResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="return"
+								type="xs:string"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="importLoanApplication">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="user"
+								type="xs:string"/>
+						<xs:element name="password"
+								type="xs:string"/>
+						<xs:element name="loanApplication"
+								type="tns:LoanApplication"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="importLoanApplicationResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="return"
+								type="xs:string"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="getLoanApplicationHeaderSet">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="user"
+								type="xs:string"/>
+						<xs:element name="password"
+								type="xs:string"/>
+						<xs:element name="loanApplicationID"
+								type="xs:string"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="getLoanApplicationHeaderSetResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="return"
+								type="tns:LoanApplicationHeaderSet"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="getLoanApplicationFile">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="user"
+								type="xs:string"/>
+						<xs:element name="password"
+								type="xs:string"/>
+						<xs:element name="applicationID"
+								type="xs:string"/>
+						<xs:element name="fileName"
+								type="xs:string"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="getLoanApplicationFileResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="return"
+								type="xs:base64Binary"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="sendMessage">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="user"
+								type="xs:string"/>
+						<xs:element name="password"
+								type="xs:string"/>
+						<xs:element name="applicationID"
+								type="xs:string"/>
+						<xs:element name="text"
+								type="xs:string"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="sendMessageResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="return"
+								type="xs:boolean"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="getMessageHeaderSet">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="user"
+								type="xs:string"/>
+						<xs:element name="password"
+								type="xs:string"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="getMessageHeaderSetResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="return"
+								type="tns:MessageHeaderSet"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="getMessages">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="user"
+								type="xs:string"/>
+						<xs:element name="password"
+								type="xs:string"/>
+						<xs:element name="applicationID"
+								type="xs:string"/>
+						<xs:element name="newMessages"
+								type="xs:boolean"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="getMessagesResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="return"
+								type="tns:MessageSet"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="getClientData">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="user"
+								type="xs:string"/>
+						<xs:element name="password"
+								type="xs:string"/>
+						<xs:element name="idno"
+								type="xs:string"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="getClientDataResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="return"
+								type="tns:ClientData"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:schema>
+	</types>
+	<message name="authorizeUserRequestMessage">
+		<part name="parameters"
+				element="tns:authorizeUser"/>
+	</message>
+	<message name="authorizeUserResponseMessage">
+		<part name="parameters"
+				element="tns:authorizeUserResponse"/>
+	</message>
+	<message name="validateLoanApplicationRequestMessage">
+		<part name="parameters"
+				element="tns:validateLoanApplication"/>
+	</message>
+	<message name="validateLoanApplicationResponseMessage">
+		<part name="parameters"
+				element="tns:validateLoanApplicationResponse"/>
+	</message>
+	<message name="importLoanApplicationRequestMessage">
+		<part name="parameters"
+				element="tns:importLoanApplication"/>
+	</message>
+	<message name="importLoanApplicationResponseMessage">
+		<part name="parameters"
+				element="tns:importLoanApplicationResponse"/>
+	</message>
+	<message name="getLoanApplicationHeaderSetRequestMessage">
+		<part name="parameters"
+				element="tns:getLoanApplicationHeaderSet"/>
+	</message>
+	<message name="getLoanApplicationHeaderSetResponseMessage">
+		<part name="parameters"
+				element="tns:getLoanApplicationHeaderSetResponse"/>
+	</message>
+	<message name="getLoanApplicationFileRequestMessage">
+		<part name="parameters"
+				element="tns:getLoanApplicationFile"/>
+	</message>
+	<message name="getLoanApplicationFileResponseMessage">
+		<part name="parameters"
+				element="tns:getLoanApplicationFileResponse"/>
+	</message>
+	<message name="sendMessageRequestMessage">
+		<part name="parameters"
+				element="tns:sendMessage"/>
+	</message>
+	<message name="sendMessageResponseMessage">
+		<part name="parameters"
+				element="tns:sendMessageResponse"/>
+	</message>
+	<message name="getMessageHeaderSetRequestMessage">
+		<part name="parameters"
+				element="tns:getMessageHeaderSet"/>
+	</message>
+	<message name="getMessageHeaderSetResponseMessage">
+		<part name="parameters"
+				element="tns:getMessageHeaderSetResponse"/>
+	</message>
+	<message name="getMessagesRequestMessage">
+		<part name="parameters"
+				element="tns:getMessages"/>
+	</message>
+	<message name="getMessagesResponseMessage">
+		<part name="parameters"
+				element="tns:getMessagesResponse"/>
+	</message>
+	<message name="getClientDataRequestMessage">
+		<part name="parameters"
+				element="tns:getClientData"/>
+	</message>
+	<message name="getClientDataResponseMessage">
+		<part name="parameters"
+				element="tns:getClientDataResponse"/>
+	</message>
+	<portType name="LoanApplicationServicePortType">
+		<operation name="authorizeUser">
+			<input message="tns:authorizeUserRequestMessage"/>
+			<output message="tns:authorizeUserResponseMessage"/>
+		</operation>
+		<operation name="validateLoanApplication">
+			<input message="tns:validateLoanApplicationRequestMessage"/>
+			<output message="tns:validateLoanApplicationResponseMessage"/>
+		</operation>
+		<operation name="importLoanApplication">
+			<input message="tns:importLoanApplicationRequestMessage"/>
+			<output message="tns:importLoanApplicationResponseMessage"/>
+		</operation>
+		<operation name="getLoanApplicationHeaderSet">
+			<input message="tns:getLoanApplicationHeaderSetRequestMessage"/>
+			<output message="tns:getLoanApplicationHeaderSetResponseMessage"/>
+		</operation>
+		<operation name="getLoanApplicationFile">
+			<input message="tns:getLoanApplicationFileRequestMessage"/>
+			<output message="tns:getLoanApplicationFileResponseMessage"/>
+		</operation>
+		<operation name="sendMessage">
+			<input message="tns:sendMessageRequestMessage"/>
+			<output message="tns:sendMessageResponseMessage"/>
+		</operation>
+		<operation name="getMessageHeaderSet">
+			<input message="tns:getMessageHeaderSetRequestMessage"/>
+			<output message="tns:getMessageHeaderSetResponseMessage"/>
+		</operation>
+		<operation name="getMessages">
+			<input message="tns:getMessagesRequestMessage"/>
+			<output message="tns:getMessagesResponseMessage"/>
+		</operation>
+		<operation name="getClientData">
+			<input message="tns:getClientDataRequestMessage"/>
+			<output message="tns:getClientDataResponseMessage"/>
+		</operation>
+	</portType>
+	<binding name="LoanApplicationServiceSoapBinding"
+			type="tns:LoanApplicationServicePortType">
+		<soapbind:binding style="document"
+				transport="http://schemas.xmlsoap.org/soap/http"/>
+		<operation name="authorizeUser">
+			<soapbind:operation style="document"
+					soapAction="http://www.topcredit.md#LoanApplicationService:authorizeUser"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="validateLoanApplication">
+			<soapbind:operation style="document"
+					soapAction="http://www.topcredit.md#LoanApplicationService:validateLoanApplication"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="importLoanApplication">
+			<soapbind:operation style="document"
+					soapAction="http://www.topcredit.md#LoanApplicationService:importLoanApplication"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="getLoanApplicationHeaderSet">
+			<soapbind:operation style="document"
+					soapAction="http://www.topcredit.md#LoanApplicationService:getLoanApplicationHeaderSet"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="getLoanApplicationFile">
+			<soapbind:operation style="document"
+					soapAction="http://www.topcredit.md#LoanApplicationService:getLoanApplicationFile"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="sendMessage">
+			<soapbind:operation style="document"
+					soapAction="http://www.topcredit.md#LoanApplicationService:sendMessage"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="getMessageHeaderSet">
+			<soapbind:operation style="document"
+					soapAction="http://www.topcredit.md#LoanApplicationService:getMessageHeaderSet"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="getMessages">
+			<soapbind:operation style="document"
+					soapAction="http://www.topcredit.md#LoanApplicationService:getMessages"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="getClientData">
+			<soapbind:operation style="document"
+					soapAction="http://www.topcredit.md#LoanApplicationService:getClientData"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+	</binding>
+	<binding name="LoanApplicationServiceSoap12Binding"
+			type="tns:LoanApplicationServicePortType">
+		<soap12bind:binding style="document"
+				transport="http://schemas.xmlsoap.org/soap/http"/>
+		<operation name="authorizeUser">
+			<soap12bind:operation style="document"
+					soapAction="http://www.topcredit.md#LoanApplicationService:authorizeUser"/>
+			<input>
+				<soap12bind:body use="literal"/>
+			</input>
+			<output>
+				<soap12bind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="validateLoanApplication">
+			<soap12bind:operation style="document"
+					soapAction="http://www.topcredit.md#LoanApplicationService:validateLoanApplication"/>
+			<input>
+				<soap12bind:body use="literal"/>
+			</input>
+			<output>
+				<soap12bind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="importLoanApplication">
+			<soap12bind:operation style="document"
+					soapAction="http://www.topcredit.md#LoanApplicationService:importLoanApplication"/>
+			<input>
+				<soap12bind:body use="literal"/>
+			</input>
+			<output>
+				<soap12bind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="getLoanApplicationHeaderSet">
+			<soap12bind:operation style="document"
+					soapAction="http://www.topcredit.md#LoanApplicationService:getLoanApplicationHeaderSet"/>
+			<input>
+				<soap12bind:body use="literal"/>
+			</input>
+			<output>
+				<soap12bind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="getLoanApplicationFile">
+			<soap12bind:operation style="document"
+					soapAction="http://www.topcredit.md#LoanApplicationService:getLoanApplicationFile"/>
+			<input>
+				<soap12bind:body use="literal"/>
+			</input>
+			<output>
+				<soap12bind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="sendMessage">
+			<soap12bind:operation style="document"
+					soapAction="http://www.topcredit.md#LoanApplicationService:sendMessage"/>
+			<input>
+				<soap12bind:body use="literal"/>
+			</input>
+			<output>
+				<soap12bind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="getMessageHeaderSet">
+			<soap12bind:operation style="document"
+					soapAction="http://www.topcredit.md#LoanApplicationService:getMessageHeaderSet"/>
+			<input>
+				<soap12bind:body use="literal"/>
+			</input>
+			<output>
+				<soap12bind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="getMessages">
+			<soap12bind:operation style="document"
+					soapAction="http://www.topcredit.md#LoanApplicationService:getMessages"/>
+			<input>
+				<soap12bind:body use="literal"/>
+			</input>
+			<output>
+				<soap12bind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="getClientData">
+			<soap12bind:operation style="document"
+					soapAction="http://www.topcredit.md#LoanApplicationService:getClientData"/>
+			<input>
+				<soap12bind:body use="literal"/>
+			</input>
+			<output>
+				<soap12bind:body use="literal"/>
+			</output>
+		</operation>
+	</binding>
+	<service name="LoanApplicationService">
+		<port name="LoanApplicationServiceSoap"
+				binding="tns:LoanApplicationServiceSoapBinding">
+			<documentation> 
+				<wsi:Claim xmlns:wsi="http://ws-i.org/schemas/conformanceClaim/"
+						conformsTo="http://ws-i.org/profiles/basic/1.1"/>
+			</documentation>
+			<soapbind:address location="http://188.138.214.69/topcredit/ws/LoanApplicationService.1cws"/>
+		</port>
+		<port name="LoanApplicationServiceSoap12"
+				binding="tns:LoanApplicationServiceSoap12Binding">
+			<soap12bind:address location="http://188.138.214.69/topcredit/ws/LoanApplicationService.1cws"/>
+		</port>
+	</service>
+</definitions>

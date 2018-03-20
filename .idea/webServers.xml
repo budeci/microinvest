@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="bba3e6b5-fd1d-4693-9343-cdb9b9e75ad8" name="Microinvest" url="http://microinvest.loc">
+        <fileTransfer port="0" mountedRoot="C:\xampp\htdocs\microinvest" accessType="MOUNT" />
+      </webServer>
+    </option>
+  </component>
+</project>

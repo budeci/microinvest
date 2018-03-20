@@ -1,0 +1,12 @@
+.page_404 {
+    height: 100%;
+    text-align: center;
+}
+.td {
+    display: table-cell;
+    vertical-align: middle;
+}
+.display-table {
+    display: table;
+    width: 100%;
+}

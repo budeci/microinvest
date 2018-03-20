@@ -1,0 +1,217 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700);
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+}
+
+.bg-white {
+    background: #fff;
+}
+
+.general-info {
+    padding: 10px;
+}
+
+.morecontent span {
+    display: none;
+}
+
+.morelink {
+    display: inline-block;
+}
+
+.alert-sm {
+    padding: 10px 35px 10px 15px;
+}
+
+#datetimepicker input {
+    cursor: pointer;
+}
+
+.radio-condition {
+    float: left;
+    padding-right: 10px;
+}
+
+.radio-condition+label {
+    display: inline;
+}
+
+.conditions label {
+    margin: 0;
+}
+
+.conditions {
+    overflow: hidden;
+    margin-bottom: 5px;
+}
+
+.conditions input {
+    margin-right: 5px;
+}
+
+.btn-send {
+    margin: 40px auto 60px auto;
+}
+
+.btn-send button {
+    cursor: pointer;
+}
+
+legend {
+    display: block;
+    width: 100%;
+    padding: 0;
+    font-size: 21px;
+    line-height: inherit;
+    color: #333;
+    border: 0;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.form-control[required] {
+    background-color: #eceeef;
+    opacity: 1;
+}
+
+.form-control[readonly] {}
+
+table.agreement thead th {
+    border-top: none;
+}
+
+.guarantor-none {
+    visibility: hidden;
+    position: absolute;
+    display: none;
+}
+
+.qtip-content label {
+    margin-bottom: 0;
+}
+
+input::-webkit-input-placeholder {
+    /* Chrome/Opera/Safari */
+    color: rgba(165, 165, 165, 0.7) !important;
+}
+
+input::-moz-placeholder {
+    /* Firefox 19+ */
+    color: rgba(165, 165, 165, 0.7) !important;
+}
+
+input:-ms-input-placeholder {
+    /* IE 10+ */
+    color: rgba(165, 165, 165, 0.7) !important;
+}
+
+input:-moz-placeholder {
+    /* Firefox 18- */
+    color: rgba(165, 165, 165, 0.7) !important;
+}
+
+#input-pickfiles,
+#input-pickfiles-tehPasport {
+    height: 0;
+    border: none;
+    color: #fff;
+}
+
+#input-pickfiles:focus,
+#input-pickfile-tehPaspor:focus {
+    outline: none;
+}
+
+.navbar-brand {
+    padding-top: 0;
+}
+
+.navbar-inverse .navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 1);
+}
+
+.schendule tr {
+    cursor: pointer;
+}
+
+.schendulev2 table th {
+    border-top: none;
+}
+
+
+/* @media screen and (max-width: 768px) {
+  .calc-label{
+    display: none;
+  }
+}
+@media screen and (min-width: 768px) {
+  .calc-label{
+    display: block;
+  }
+} */
+
+.calc-label {
+    display: block;
+}
+
+.orar,
+.info {
+    list-style-type: none;
+    padding: 0;
+}
+
+@media screen and (min-width: 768px) {
+    .orar {
+        text-align: right;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .orar {
+        text-align: none;
+    }
+}
+
+.schendule tbody tr:not(.selected):hover {
+    background-color: rgba(0, 0, 0, .075);
+}
+
+table tr.selected {
+    background: #5cb85c;
+    color: white;
+}
+
+.top-bar-langs ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    font-size: 0;
+}
+
+.top-bar-langs {
+    padding: 15px 0;
+}
+
+.top-bar-langs ul li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.icon-lang {
+    width: 16px;
+    height: 11px;
+    display: inline-block;
+    background-repeat: no-repeat;
+}
+
+.icon-ro {
+    background-image: url("/assets/images/ico/flag-ro.png");
+}
+
+.icon-ru {
+    background-image: url("/assets/images/ico/flag-ru.png");
+}
+
+.icon-en {
+    background-image: url("/assets/images/ico/flag-en.png");
+}

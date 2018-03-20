@@ -1,0 +1,2148 @@
+@font-face {
+    font-family: 'montserrat_bold';
+    src: url(/assets/lp/fonts/Monstserrat/Montserrat-Bold.otf);
+}
+
+@font-face {
+    font-family: 'montserrat_semi';
+    src: url(/assets/lp/fonts/Monstserrat/Montserrat-SemiBold.otf);
+}
+
+@font-face {
+    font-family: 'montserrat_regular';
+    src: url(/assets/lp/fonts/Monstserrat/Montserrat-Regular.otf);
+}
+
+@font-face {
+    font-family: 'montserrat_light';
+    src: url(/assets/lp/fonts/Monstserrat/Montserrat-Light.otf);
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+    font-family: 'roboto';
+}
+
+label {
+    cursor: pointer;
+}
+
+.partners img {
+    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%);
+}
+
+.partners img:hover {
+    -webkit-filter: grayscale(0%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(0%);
+}
+
+.bar_head {
+    height: 100px;
+    width: 100%;
+    z-index: 1000;
+    background: #fff;
+    display: none;
+    -webkit-box-shadow: 3px 9px 28px -8px rgba(0, 0, 0, 0.55);
+    -moz-box-shadow: 3px 9px 28px -8px rgba(0, 0, 0, 0.55);
+    box-shadow: 3px 9px 28px -8px rgba(0, 0, 0, 0.55);
+
+}
+
+.bar_head_logo {
+    padding-left: 50px;
+}
+
+.bar_head_logare {
+    font-family: 'montserrat_regular';
+    font-size: 30px;
+    color: #000;
+    display: block;
+    text-transform: uppercase;
+    text-align: center;
+    padding-top: 25px;
+}
+
+.bar_head_calcul {
+    font-family: 'montserrat_regular';
+    font-size: 20px;
+    color: #000;
+    display: block;
+    text-align: center;
+    text-transform: uppercase;
+    padding-top: 30px;
+}
+
+.bar_head a:hover {
+    text-decoration: none;
+    color: #000;
+}
+
+.bar_head_phone {
+    background: #27a2ff;
+    color: #fff;
+    font-family: 'montserrat_semi';
+    display: block;
+    width: 100%;
+    height: 100px;
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    padding: 30px 0 0 10px;
+}
+
+.bar_head_phone img {
+    padding-right: 10px;
+}
+
+/* .squaredThree */
+
+/*input[type=checkbox] {
+  visibility: hidden;
+  }
+  .checkboxFive {
+  width: 25px;
+  margin: 20px 100px;
+  position: relative;
+}
+.checkboxFive label {
+  cursor: pointer;
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  top: 0;
+  left: 0;
+  background: #eee;
+  border:1px solid #ddd;
+}
+.checkboxFive label:after {
+  opacity: 0.2;
+  content: '';
+  position: absolute;
+  width: 9px;
+  height: 5px;
+  background: transparent;
+  top: 6px;
+  left: 7px;
+  border: 3px solid #333;
+  border-top: none;
+  border-right: none;
+
+  transform: rotate(-45deg);
+}
+.checkboxFive label:hover::after {
+  opacity: 0.5;
+}
+.checkboxFive input[type=checkbox]:checked + label:after {
+  opacity: 1;
+}    */
+
+/* end .squaredThree */
+.first_login a {
+    position: absolute;
+    right: 430px;
+    top: 50px;
+    font-family: 'montserrat_regular';
+    font-size: 30px;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.first_login a,
+.first_calcul a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.first_calcul a > img {
+    margin-right: 10px;
+}
+
+.first_calcul a {
+    position: absolute;
+    right: 10px;
+    top: 55px;
+    font-family: 'montserrat_regular';
+    font-size: 20px;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.first_section {
+    background: url('/assets/lp/images/bg1.png') no-repeat center center;
+    background-size: cover;
+    position: relative;
+
+}
+
+.first_block {
+    position: absolute;
+    right: 0;
+}
+
+.first_color {
+    background-color: #6d79ee;
+    position: absolute;
+}
+
+.first_block h3 {
+    font-family: 'montserrat_regular';
+    color: #003c69;
+    float: left;
+}
+
+.first_block span {
+    font-family: 'montserrat_semi';
+    color: #000;
+    text-align: center;
+    display: inline-block;
+}
+
+.first_block span > a {
+    color: #000;
+}
+
+.first_block span > a:hover {
+    text-decoration: none;
+    color: #000;
+}
+
+.first_block_inner {
+    background-color: #fff;
+}
+
+.first_title h3 {
+    font-family: 'montserrat_bold';
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.first_title h4 {
+    font-family: 'montserrat_regular';
+    color: #fff;
+}
+
+.first_title h5 {
+    font-family: 'montserrat_semi';
+    color: #fff;
+}
+
+.first_contacts_color {
+    background-color: #27a2ff;
+}
+
+.first_contacts_form {
+    background-color: #fcf7ff;
+
+    -webkit-box-shadow: -1px 0px 32px 0px rgba(0, 0, 0, 0.45);
+    -moz-box-shadow: -1px 0px 32px 0px rgba(0, 0, 0, 0.45);
+    box-shadow: -1px 0px 32px 0px rgba(0, 0, 0, 0.45);
+}
+
+.first_contacts_form h3 {
+    font-family: 'montserrat_bold';
+    color: #003c69;
+    text-align: center;
+}
+
+.first_contacts_form span {
+    display: block;
+    font-family: 'montserrat_semi';
+    color: #27a2ff;
+}
+
+.first_contacts_form input[type=checkbox] {
+    width: 12px;
+    height: 12px;
+    border-radius: 0;
+    border: 1px solid #000;
+}
+
+.first_contacts_form label {
+    width: 94%;
+    background: #fff;
+    border: 1px solid #f4f1f7;
+    font-family: 'montserrat_regular';
+    font-size: 10px;
+    color: #5a93d2;
+    padding: 3px 5px;
+    float: right;
+}
+
+.first_contacts_form h4 {
+    font-family: 'montserrat_light';
+    font-size: 15px;
+    color: #001f42;
+    text-align: center;
+}
+
+.first_file label {
+    color: #000;
+    background: transparent;
+    border: none;
+    font-family: 'montserrat_regular';
+    font-size: 15px;
+    text-decoration: underline;
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+.first_file [type=file] {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.first_inp {
+    position: relative;
+}
+
+.first_inp img {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.first_inp input[type=text],
+.first_inp input[type=email],
+.first_inp input[type=tel] {
+    width: 100%;
+    height: 45px;
+    background-color: #fff;
+    padding-left: 40px;
+    font-family: 'montserrat_regular';
+    font-size: 15px;
+    color: #5a93d2;
+    border: 2px solid #f4f1f7;
+    margin-bottom: 15px;
+}
+
+.first_inp input[type=text]::-webkit-input-placeholder,
+.first_inp input[type=email]::-webkit-input-placeholder,
+.first_inp input[type=tel]::-webkit-input-placeholder {
+    /* Chrome/Opera/Safari */
+    font-family: 'montserrat_regular';
+    font-size: 15px;
+    color: #5a93d2;
+}
+
+.first_inp input[type=text]::-moz-placeholder,
+.first_inp input[type=email]::-moz-placeholder,
+.first_inp input[type=tel]::-moz-placeholder {
+    /* Firefox 19+ */
+    font-family: 'montserrat_regular';
+    font-size: 15px;
+    color: #5a93d2;
+}
+
+.first_inp input[type=text]:-ms-input-placeholder,
+.first_inp input[type=email]:-ms-input-placeholder,
+.first_inp input[type=tel]:-ms-input-placeholder {
+    /* IE 10+ */
+    font-family: 'montserrat_regular';
+    font-size: 15px;
+    color: #5a93d2;
+}
+
+.first_inp input[type=text]:-moz-placeholder,
+.first_inp input[type=email]:-moz-placeholder,
+.first_inp input[type=tel]:-moz-placeholder {
+    /* Firefox 18- */
+    font-family: 'montserrat_regular';
+    font-size: 15px;
+    color: #5a93d2;
+}
+
+.first_contacts_form input[type=submit] {
+    display: block;
+    border: none;
+    font-family: 'montserrat_bold';
+    color: #fff;
+    border-radius: 5px;
+    -webkit-box-shadow: -1px 0px 32px -1px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: -1px 0px 32px -1px rgba(0, 0, 0, 0.4);
+    box-shadow: -1px 0px 32px -1px rgba(0, 0, 0, 0.4);
+    background: #7398f2; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(#7398f2, #4c87f7); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#7398f2, #4c87f7); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#7398f2, #4c87f7); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#7398f2, #4c87f7); /* Standard syntax */
+}
+
+.credit {
+    background-color: #f4f7fa;
+    border-bottom: 1px solid #cfcfcf;
+}
+
+.credit_block {
+    width: 100%;
+    text-align: center;
+    border-left: 1px solid #cfcfcf;
+    border-right: 1px solid #cfcfcf;
+    margin-top: 20px;
+    padding-top: 30px;
+    cursor: pointer;
+    position: relative;
+    margin-bottom: 50px;
+}
+
+.credit h3 {
+    font-family: 'montserrat_semi';
+    color: #003c69;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.credit_img {
+    display: block;
+    margin: 20px auto;
+}
+
+/*.credit_block:after {
+    content: "";
+    position: absolute;
+    right: 0;
+    z-index: 100;
+    top: 0;
+    width: 3px;
+    height: 50%;
+}
+
+.credit_block:hover {
+    background-color: #fff;
+    border: none;
+    -webkit-box-shadow: 2px 2px 68px -9px rgba(0, 0, 0, 0.68);
+    -moz-box-shadow: 2px 2px 68px -9px rgba(0, 0, 0, 0.68);
+    box-shadow: 2px 2px 68px -9px rgba(0, 0, 0, 0.68);
+}*/
+
+.credit_block h3 {
+    font-family: 'montserrat_semi';
+    color: #0067b4;
+    text-transform: uppercase;
+}
+
+.credit_block h4 {
+    font-family: 'montserrat_regular';
+    color: #000;
+    text-transform: uppercase;
+}
+
+.credit_block span {
+    font-family: 'montserrat_regular';
+    color: #000;
+}
+
+.credit_block button {
+    display: none;
+    background-color: #b540f1;
+    width: 200px;
+    height: 50px;
+    border-radius: 5px;
+    border: none;
+    font-family: 'montserrat_regular';
+    font-size: 20px;
+    color: #fff;
+    text-transform: uppercase;
+    margin: 15px auto;
+    -webkit-box-shadow: 2px 2px 56px -9px rgba(0, 0, 0, 0.68);
+    -moz-box-shadow: 2px 2px 56px -9px rgba(0, 0, 0, 0.68);
+    box-shadow: 2px 2px 56px -9px rgba(0, 0, 0, 0.68);
+}
+
+.credit_block:hover.credit_block button {
+    display: block;
+}
+
+.benefis,
+.benefis_xs {
+    background-color: #f4f7fa;
+    text-align: center;
+    position: relative;
+}
+
+.benefis h3,
+.benefis_xs h3 {
+    font-family: 'montserrat_semi';
+    color: #003c69;
+    text-transform: uppercase;
+}
+
+.benefis_block {
+    width: 100%;
+    display: table;
+}
+
+.benefis_block1 {
+    display: table;
+    -webkit-box-shadow: 2px 2px 56px -9px rgba(0, 0, 0, 0.68);
+    -moz-box-shadow: 2px 2px 56px -9px rgba(0, 0, 0, 0.68);
+    box-shadow: 2px 2px 56px -9px rgba(0, 0, 0, 0.68);
+}
+
+.benefis_block h4,
+.benefis_block1 h4 {
+    font-family: 'montserrat_semi';
+    color: #fff;
+    display: table-cell;
+    vertical-align: middle;
+    text-transform: uppercase;
+    text-align: left;
+}
+
+.benefis_block1 h4 {
+    color: #003c69;
+}
+
+.benefis_block span,
+.benefis_block1 span {
+    display: table-cell;
+    vertical-align: middle;
+    font-family: 'montserrat_semi';
+    color: #27a2ff;
+}
+
+.benefis button,
+.benefis_xs button {
+    background-color: #b540f1;
+    border-radius: 5px;
+    font-family: 'montserrat_bold';
+    color: #fff;
+    border: none;
+    -webkit-box-shadow: -1px 0px 32px -1px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: -1px 0px 32px -1px rgba(0, 0, 0, 0.4);
+    box-shadow: -1px 0px 32px -1px rgba(0, 0, 0, 0.4);
+}
+
+.about {
+    background: url('/assets/lp/images/imag60.png') no-repeat center center;
+    background-size: cover;
+    text-align: center;
+    padding: 60px 0;
+}
+
+.about h3 {
+    font-family: 'montserrat_semi';
+    font-size: 50px;
+    color: #003c69;
+    text-transform: uppercase;
+}
+
+.about_block {
+    background-color: rgba(246, 245, 242, 0.6);
+    padding: 25px;
+    height: 200px;
+    width: 100%;
+    margin-top: 30px;
+    -webkit-box-shadow: 2px 2px 56px -9px rgba(0, 0, 0, 0.68);
+    -moz-box-shadow: 2px 2px 56px -9px rgba(0, 0, 0, 0.68);
+    box-shadow: 2px 2px 56px -9px rgba(0, 0, 0, 0.68);
+}
+
+.about_block p {
+    font-family: 'montserrat_semi';
+    color: #003c69;
+}
+
+.about_block_marg {
+    margin-top: 40px;
+}
+
+.partners {
+    padding: 90px 0 70px 0;
+    text-align: center;
+}
+
+.partners h3 {
+    font-family: 'montserrat_semi';
+    color: #0067b4;
+    text-transform: uppercase;
+}
+
+.partners img {
+    margin-top: 10px;
+}
+
+.partners img:hover {
+    -webkit-filter: grayscale(0%);
+    /* Safari 6.0 - 9.0 */
+    filter: grayscale(0%);
+    transition: 1s;
+}
+
+.last_section {
+    background: url('/assets/lp/images/bg_5.png') no-repeat center center;
+    background-size: cover;
+    padding-top: 50px;
+}
+
+.last_section p {
+    font-family: 'montserrat_regular';
+    font-size: 15px;
+    color: #fff;
+    margin: 40px 0 160px 0;
+}
+
+.last_section span {
+    display: block;
+    font-family: 'montserrat_regular';
+    font-size: 18px;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.last_section span > img {
+    margin-right: 10px;
+}
+
+.last_section h3 {
+    font-family: 'montserrat_semi';
+    font-size: 20px;
+    color: #269ffa;
+    margin: 25px 0;
+}
+
+.last_section button {
+    font-family: 'montserrat_bold';
+    font-size: 25px;
+    color: #fff;
+    background-color: #b540f1;
+    border-radius: 5px;
+    width: 100%;
+    height: 70px;
+    margin: 50px 0;
+    text-align: center;
+    border: none;
+}
+
+.last_about {
+    background-color: rgba(23, 22, 22, 0.4);
+    padding: 30px 0;
+    text-align: right;
+}
+
+.last_about span {
+    font-size: 12px;
+    color: #fff;
+    margin-bottom: 0;
+}
+
+.last_about a:hover {
+    text-decoration: none;
+}
+
+.modal-content {
+    background-color: transparent;
+    box-shadow: none;
+    border: none;
+    border-radius: 0;
+    width: 485px;
+}
+
+.content_thank {
+    text-align: center;
+    margin-top: 10%;
+}
+
+.content_thank h2 {
+    font-family: 'montserrat_bold';
+    font-size: 100px;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.content_thank h3 {
+    font-family: 'montserrat_regular';
+    font-size: 50px;
+    color: #fff;
+}
+
+@media screen and (min-width: 1500px) {
+    .first_contacts_color {
+        height: 300px;
+        width: 360px;
+        margin-left: 65px;
+    }
+
+    .first_contacts_form {
+        padding: 10px 30px 30px 30px;
+        margin: -270px 0 50px 95px;
+    }
+
+    .first_contacts_form input[type=submit] {
+        width: 200px;
+        height: 70px;
+        font-size: 24px;
+        margin: 50px 0 0 150px;
+    }
+
+    .first_contacts_form h3 {
+        font-size: 24px;
+    }
+
+    .first_contacts_form span {
+        font-size: 24px;
+    }
+
+    .benefis {
+        padding: 75px 0;
+    }
+
+    .benefis h3 {
+        font-size: 50px;
+    }
+
+    .benefis_block {
+        height: 460px;
+        margin-top: 180px;
+    }
+
+    .benefis_block1 {
+        width: 420px;
+        height: 400px;
+        position: absolute;
+        bottom: 260px;
+        left: 0;
+        right: 0;
+        margin: auto;
+    }
+
+    .credit h3 {
+        font-size: 50px;
+    }
+
+    .benefis_block h4,
+    .benefis_block1 h4 {
+        font-size: 40px;
+    }
+
+    .benefis_block1 h4 {
+        font-size: 32px;
+    }
+
+    .benefis_block span,
+    .benefis_block1 span {
+        font-size: 105px;
+    }
+
+    .benefis_block1 span {
+        padding-left: 70px;
+    }
+
+    .benefis button {
+        height: 70px;
+        width: 165px;
+        font-size: 24px;
+        position: absolute;
+        bottom: 50px;
+        left: 0;
+        right: 0;
+        margin: auto;
+    }
+
+    .first_section {
+        padding-top: 20px;
+        height: 100vh;
+    }
+
+    .logo_first {
+        margin-left: 60px;
+    }
+
+    .first_block {
+        top: 110px;
+        width: 860px;
+    }
+
+    .first_color {
+        width: 100px;
+        height: 100px;
+        top: 90px;
+        right: 785px;
+    }
+
+    .first_block h3 {
+        font-size: 30px;
+        line-height: 50px;
+        padding: 0 20px;
+    }
+
+    .first_block span {
+        font-size: 25px;
+        padding: 30px 20px;
+    }
+
+    .first_block span:last-of-type {
+        padding: 30px 0 30px 15px;
+    }
+
+    .first_block span > img {
+        padding-right: 5px;
+    }
+
+    .first_block_inner {
+        height: 100px;
+    }
+
+    .first_contain {
+        margin-top: 100px;
+    }
+
+    .first_img {
+        margin-top: 150px;
+    }
+
+    .first_title {
+        margin-left: 60px;
+    }
+
+    .first_title h3 {
+        font-size: 60px;
+    }
+
+    .first_title h4 {
+        font-size: 35px;
+    }
+
+    .first_title h5 {
+        font-size: 35px;
+    }
+
+    .about_block p {
+        font-size: 20px;
+        margin-top: 15px;
+    }
+
+    .credit {
+        padding-top: 70px;
+    }
+
+    .credit_block {
+        height: 450px;
+    }
+
+    .credit_block img {
+        height: 250px;
+    }
+
+    .credit_block h3 {
+        font-size: 30px;
+    }
+
+    .credit_block h4 {
+        font-size: 40px;
+    }
+
+    .credit_block span {
+        font-size: 40px;
+    }
+
+    .benefis_xs {
+        display: none;
+    }
+
+    .content_thank h2 {
+        font-size: 100px;
+    }
+
+    .content_thank h3 {
+        font-size: 50px;
+    }
+
+    .textblock {
+        background: url(/assets/lp/images/text_bg.png) no-repeat center center;
+        background-size: cover;
+        padding: 75px 0;
+    }
+
+    .textblock_contain {
+        padding: 0 100px;
+    }
+
+    .textblock h3 {
+        font-size: 50px;
+        margin-bottom: 80px;
+    }
+
+    .credit_benefis h3 {
+        font-size: 50px;
+    }
+
+    .partners h3 {
+        font-size: 50px;
+    }
+
+    .partners_block {
+        padding: 50px 100px;
+    }
+
+    .bar_head_phone {
+        font-size: 20px;
+
+    }
+}
+
+@media screen and (max-width: 1500px) and (min-width: 1200px) {
+    .first_contacts_color {
+        height: 250px;
+        width: 290px;
+        margin-left: 20px;
+    }
+
+    .first_contacts_form {
+        padding: 10px 20px 20px 30px;
+        margin: -220px 0 50px 50px;
+    }
+
+    .first_contacts_form input[type=submit] {
+        width: 200px;
+        height: 70px;
+        font-size: 24px;
+        margin: 50px 0 0 110px;
+    }
+
+    .first_contacts_form h3 {
+        font-size: 24px;
+    }
+
+    .first_contacts_form span {
+        font-size: 22px;
+    }
+
+    .benefis {
+        padding: 75px 0;
+    }
+
+    .benefis h3 {
+        font-size: 50px;
+    }
+
+    .benefis_block {
+        height: 360px;
+        margin-top: 180px;
+    }
+
+    .benefis_block1 {
+        width: 380px;
+        height: 300px;
+        position: absolute;
+        bottom: 260px;
+        left: 0;
+        right: 0;
+        margin: auto;
+    }
+
+    .benefis_block h4,
+    .benefis_block1 h4 {
+        font-size: 24px;
+    }
+
+    .benefis_block1 h4 {
+        font-size: 22px;
+    }
+
+    .benefis_block span,
+    .benefis_block1 span {
+        font-size: 105px;
+    }
+
+    .benefis_block1 span {
+        padding-left: 70px;
+    }
+
+    .benefis button {
+        height: 70px;
+        width: 165px;
+        font-size: 24px;
+        position: absolute;
+        bottom: 50px;
+        left: 0;
+        right: 0;
+        margin: auto;
+    }
+
+    .first_section {
+        padding-top: 20px;
+        height: 100vh;
+    }
+
+    .logo_first {
+        margin-left: 60px;
+    }
+
+    .first_block {
+        top: 70px;
+        width: 760px;
+    }
+
+    .first_color {
+        width: 80px;
+        height: 80px;
+        top: 45px;
+        right: 700px;
+    }
+
+    .first_block h3 {
+        font-size: 30px;
+        line-height: 50px;
+        padding: 0 20px;
+    }
+
+    .first_block span {
+        font-size: 20px;
+        padding: 20px 15px;
+    }
+
+    .first_block span > img {
+        padding-right: 15px;
+    }
+
+    .first_block_inner {
+        height: 80px;
+    }
+
+    .first_login a {
+        top: 15px;
+    }
+
+    .first_contain {
+        margin-top: 30px;
+    }
+
+    .first_img {
+        margin-top: 150px;
+    }
+
+    .first_title {
+        margin-left: 60px;
+    }
+
+    .first_title h3 {
+        font-size: 60px;
+    }
+
+    .first_title h4 {
+        font-size: 35px;
+    }
+
+    .first_title h5 {
+        font-size: 35px;
+    }
+
+    .about_block p {
+        font-size: 20px;
+        margin-top: 15px;
+    }
+
+    .credit {
+        padding-top: 70px;
+    }
+
+    .credit_block {
+        height: 450px;
+    }
+
+    .credit_block img {
+        height: 250px;
+    }
+
+    .credit_block h4 {
+        font-size: 40px;
+    }
+
+    .credit_block span {
+        font-size: 40px;
+    }
+
+    .benefis_xs {
+        display: none;
+    }
+
+    .content_thank h2 {
+        font-size: 100px;
+    }
+
+    .content_thank h3 {
+        font-size: 50px;
+    }
+
+    .first_calcul a {
+        font-size: 18px;
+        top: 15px;
+    }
+
+    .first_login a {
+        right: 360px;
+        font-size: 20px;
+        top: 10px;
+    }
+
+    .textblock {
+        background: url(/assets/lp/images/text_bg.png) no-repeat center center;
+        background-size: cover;
+        padding: 75px 0;
+    }
+
+    .textblock_contain {
+        padding: 0 100px;
+    }
+
+    .textblock h3 {
+        font-size: 50px;
+        margin-bottom: 80px;
+    }
+
+    .credit h3 {
+        font-size: 50px;
+    }
+
+    .credit_benefis h3 {
+        font-size: 50px;
+    }
+
+    .partners h3 {
+        font-size: 50px;
+    }
+
+    .partners_block {
+        padding: 50px 100px;
+    }
+
+    .bar_head_phone {
+        font-size: 20px;
+
+    }
+
+    .credit_block h3 {
+        font-size: 30px;
+    }
+}
+
+@media screen and (max-width: 1200px) and (min-width: 1024px) {
+    .first_contacts_color {
+        height: 250px;
+        width: 290px;
+        margin-left: 20px;
+    }
+
+    .bar_head_logo {
+        margin-top:20px;
+    }
+    .bar_head_logare {
+        font-size:24px;
+    }
+    .first_contacts_form {
+        padding: 10px 20px 20px 30px;
+        margin: -220px 0 50px 50px;
+    }
+
+    .first_contacts_form input[type=submit] {
+        width: 200px;
+        height: 70px;
+        font-size: 24px;
+        margin: 50px 0 0 110px;
+    }
+
+    .first_contacts_form h3 {
+        font-size: 24px;
+    }
+
+    .first_contacts_form span {
+        font-size: 22px;
+    }
+
+    .benefis {
+        padding: 75px 0;
+    }
+
+    .benefis h3 {
+        font-size: 50px;
+    }
+
+    .benefis_block {
+        height: 360px;
+        margin-top: 180px;
+    }
+
+    .benefis_block1 {
+        width: 380px;
+        height: 300px;
+        position: absolute;
+        bottom: 260px;
+        left: 0;
+        right: 0;
+        margin: auto;
+    }
+
+    .benefis_block h4,
+    .benefis_block1 h4 {
+        font-size: 24px;
+    }
+
+    .benefis_block1 h4 {
+        font-size: 22px;
+    }
+
+    .benefis_block span,
+    .benefis_block1 span {
+        font-size: 105px;
+    }
+
+    .benefis_block1 span {
+        padding-left: 70px;
+    }
+
+    .benefis button {
+        height: 70px;
+        width: 165px;
+        font-size: 24px;
+        position: absolute;
+        bottom: 50px;
+        left: 0;
+        right: 0;
+        margin: auto;
+    }
+
+    .first_section {
+        padding-top: 20px;
+        height: 100vh;
+    }
+
+    .logo_first {
+        margin-left: 60px;
+    }
+
+    .first_block {
+        top: 110px;
+        width: 760px;
+    }
+
+    .first_color {
+        width: 100px;
+        height: 100px;
+        top: 85px;
+        right: 680px;
+    }
+
+    .first_block h3 {
+        font-size: 30px;
+        line-height: 50px;
+        padding: 0 20px;
+    }
+
+    .first_block span {
+        font-size: 20px;
+        padding: 30px 15px;
+    }
+
+    .first_block span > img {
+        padding-right: 15px;
+    }
+
+    .first_block_inner {
+        height: 100px;
+    }
+
+    .first_contain {
+        margin-top: 100px;
+    }
+
+    .first_img {
+        margin-top: 150px;
+    }
+
+    .first_title {
+        margin-left: 60px;
+    }
+
+    .first_title h3 {
+        font-size: 60px;
+    }
+
+    .first_title h4 {
+        font-size: 35px;
+    }
+
+    .first_title h5 {
+        font-size: 35px;
+    }
+
+    .about_block p {
+        font-size: 20px;
+        margin-top: 15px;
+    }
+
+    .credit {
+        padding-top: 70px;
+    }
+
+    .credit_block {
+        height: 450px;
+    }
+
+    .credit_block img {
+        height: 250px;
+    }
+
+    .credit_block h4 {
+        font-size: 30px;
+    }
+
+    .credit_block span {
+        font-size: 40px;
+    }
+
+    .benefis_xs {
+        display: none;
+    }
+
+    .content_thank h2 {
+        font-size: 100px;
+    }
+
+    .content_thank h3 {
+        font-size: 50px;
+    }
+
+    .first_calcul a {
+        font-size: 18px;
+    }
+
+    .first_login a {
+        right: 360px;
+        font-size: 20px;
+    }
+
+    .textblock {
+        background: url(/assets/lp/images/text_bg.png) no-repeat center center;
+        background-size: cover;
+        padding: 75px 0;
+    }
+
+    .textblock_contain {
+        padding: 0 100px;
+    }
+
+    .textblock h3 {
+        font-size: 50px;
+        margin-bottom: 80px;
+    }
+
+    .credit h3 {
+        font-size: 50px;
+    }
+
+    .credit_benefis h3 {
+        font-size: 50px;
+    }
+
+    .partners h3 {
+        font-size: 50px;
+    }
+
+    .partners_block {
+        padding: 50px 100px;
+    }
+
+    .bar_head_phone {
+        font-size: 15px;
+
+    }
+ .bar_head_phone img{
+display: none;
+ }
+    .credit_block h3 {
+        font-size: 30px;
+    }
+    .bar_head_phone span{
+        font-size:  14px;
+    }
+}
+
+@media screen and (max-width: 1024px) and (min-width: 768px) {
+    .first_contacts_color {
+        height: 250px;
+        width: 290px;
+        margin-left: 20px;
+    }
+
+    .first_contacts_form {
+        padding: 10px 20px 20px 30px;
+        margin: -220px 0 50px 50px;
+    }
+
+    .first_contacts_form input[type=submit] {
+        width: 200px;
+        height: 70px;
+        font-size: 24px;
+        margin: 50px 0 0 110px;
+    }
+
+    .first_contacts_form h3 {
+        font-size: 24px;
+    }
+
+    .first_contacts_form span {
+        font-size: 22px;
+    }
+
+    .benefis {
+        padding: 75px 0;
+    }
+
+    .benefis h3 {
+        font-size: 50px;
+    }
+
+    .benefis_block {
+        height: 360px;
+        margin-top: 220px;
+    }
+
+    .benefis_block1 {
+        width: 380px;
+        height: 300px;
+        position: absolute;
+        bottom: 320px;
+        left: 0;
+        right: 0;
+        margin: auto;
+    }
+
+    .benefis_block h4,
+    .benefis_block1 h4 {
+        font-size: 24px;
+    }
+
+    .benefis_block1 h4 {
+        font-size: 22px;
+    }
+
+    .benefis_block span,
+    .benefis_block1 span {
+        font-size: 105px;
+    }
+
+    .benefis_block1 span {
+        padding-left: 70px;
+    }
+
+    .benefis button {
+        height: 70px;
+        width: 165px;
+        font-size: 24px;
+        position: absolute;
+        bottom: 50px;
+        left: 0;
+        right: 0;
+        margin: auto;
+    }
+
+    .first_section {
+        padding-top: 20px;
+        height: 100vh;
+    }
+
+    .logo_first {
+        margin-left: 15px;
+        width: 130px;
+    }
+
+    .first_block {
+        top: 70px;
+        width: 555px;
+    }
+
+    .first_color {
+        width: 70px;
+        height: 70px;
+        top: 55px;
+        right: 495px;
+    }
+
+    .first_block h3 {
+        font-size: 22px;
+        line-height: 30px;
+        padding: 0 5px;
+    }
+
+    .first_block span {
+        font-size: 16px;
+        padding: 15px 5px;
+    }
+
+    .first_block span > img {
+        padding-right: 5px;
+    }
+
+    .first_block_inner {
+        height: 70px;
+    }
+
+    .first_contain {
+        margin-top: 60px;
+    }
+
+    .first_img {
+        margin-top: 100px;
+    }
+
+    .first_title h3 {
+        font-size: 45px;
+    }
+
+    .first_title h4 {
+        font-size: 25px;
+    }
+
+    .first_title h5 {
+        font-size: 25px;
+    }
+
+    .about_block img {
+        width: 50px;
+    }
+
+    .about_block p {
+        font-size: 15px;
+        margin-top: 5px;
+    }
+
+    .credit {
+        padding-top: 70px;
+    }
+
+    .credit_block {
+        height: 450px;
+    }
+
+    .credit_block img {
+        height: 250px;
+    }
+
+    .credit_block h4 {
+        font-size: 25px;
+    }
+
+    .credit_block span {
+        font-size: 40px;
+    }
+
+    .benefis_xs {
+        display: none;
+    }
+
+    .content_thank h2 {
+        font-size: 70px;
+    }
+
+    .content_thank h3 {
+        font-size: 40px;
+    }
+
+    .first_calcul a {
+        font-size: 18px;
+        top: 20px;
+    }
+
+    .first_login a {
+        right: 360px;
+        font-size: 20px;
+        top: 20px;
+    }
+
+    .textblock {
+        background: url(/assets/lp/images/text_bg.png) no-repeat center center;
+        background-size: cover;
+        padding: 75px 0;
+    }
+
+    .textblock_contain {
+        padding: 0 100px;
+    }
+
+    .textblock h3 {
+        font-size: 50px;
+        margin-bottom: 80px;
+    }
+
+    .credit h3 {
+        font-size: 50px;
+    }
+
+    .credit_benefis h3 {
+        font-size: 50px;
+    }
+
+    .partners h3 {
+        font-size: 50px;
+    }
+
+    .partners_block {
+        padding: 50px;
+    }
+
+    .bar_head_phone {
+        font-size: 12px;
+        height: 70px;
+        padding:20px 0 0 10px;
+
+    }
+    .bar_head_phone img{
+        display: none;
+    }
+    
+    .credit_block h3 {
+        font-size: 30px;
+    }
+    .bar_head_logare{
+        font-size: 14px;
+        padding-top: 20px;
+    }
+    .bar_head_calcul{
+        font-size: 14px;
+        padding-top: 20px;
+    }
+    .bar_head{
+        height: 70px;
+    }
+    .bar_head_logo{
+        padding-top: 10px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .modal-content {
+        width: 100%;
+    }
+
+    .first_contacts_color {
+        height: 250px;
+        width: 290px;
+        margin-left: 20px;
+    }
+
+    .first_contacts_form {
+        padding: 10px 20px 20px 30px;
+        margin: -220px 0 40px 50px;
+    }
+
+    .first_contacts_form input[type=submit] {
+        width: 200px;
+        height: 70px;
+        font-size: 24px;
+        margin: 50px 0 0 110px;
+    }
+
+    .first_contacts_form h3 {
+        font-size: 24px;
+    }
+
+    .first_contacts_form span {
+        font-size: 22px;
+    }
+
+    .benefis {
+        display: none;
+    }
+
+    .benefis_xs h3 {
+        font-size: 30px;
+    }
+
+    .benefis_block {
+        height: 360px;
+        margin-top: 220px;
+    }
+
+    .benefis_block1 {
+        width: 380px;
+        height: 300px;
+        position: absolute;
+        bottom: 320px;
+        left: 0;
+        right: 0;
+        margin: auto;
+    }
+
+    .benefis_block h4,
+    .benefis_block1 h4 {
+        font-size: 24px;
+    }
+
+    .benefis_block1 h4 {
+        font-size: 22px;
+    }
+
+    .benefis_block span,
+    .benefis_block1 span {
+        font-size: 105px;
+    }
+
+    .benefis_block1 span {
+        padding-left: 70px;
+    }
+
+    .benefis_xs button {
+        height: 50px;
+        width: 200px;
+        font-size: 25px;
+        margin: 20px auto;
+    }
+
+    .first_section {
+        padding-top: 15px;
+    }
+
+    .logo_first {
+        margin-left: 15px;
+        width: 130px;
+    }
+
+    .first_block {
+        top: 130px;
+        width: 100%;
+    }
+
+    .first_color {
+        display: none;
+    }
+
+    .first_block h3 {
+        font-size: 16px;
+        line-height: 30px;
+        padding: 0 5px;
+    }
+
+    .first_block span {
+        font-size: 16px;
+        width: 210px;
+        height: 70px;
+        padding-top: 15px;
+    }
+
+    .first_block span > img {
+        padding-right: 5px;
+    }
+
+    .first_block_inner {
+        height: 70px;
+    }
+
+    .first_contain {
+        margin-top: 60px;
+    }
+
+    .first_img {
+        margin-top: 85px;
+    }
+
+    .first_title h3 {
+        font-size: 45px;
+    }
+
+    .first_title h4 {
+        font-size: 25px;
+    }
+
+    .first_title h5 {
+        font-size: 25px;
+    }
+
+    .about_block img {
+        width: 50px;
+    }
+
+    .about_block p {
+        font-size: 15px;
+        margin-top: 5px;
+    }
+
+    .credit {
+        padding-top: 50px;
+    }
+
+    .credit_block {
+        height: 390px;
+    }
+
+    .credit_block img {
+        height: 170px;
+    }
+
+    .credit_block h4 {
+        font-size: 20px;
+    }
+
+    .credit_block span {
+        font-size: 25px;
+    }
+
+    .benefis_xs li {
+        list-style: none;
+        display: block;
+        margin-bottom: 10px;
+        font-family: 'montserrat_regular';
+        font-size: 20px;
+        color: #000;
+        text-align: left;
+    }
+
+    .benefis_xs li > span {
+        font-size: 40px;
+        color: #27a2ff;
+        padding-right: 10px;
+    }
+
+    .first_calcul a {
+        font-size: 16px;
+        top: 10px;
+    }
+
+    .first_login a {
+        right: 10px;
+        font-size: 16px;
+        top: 50px;
+    }
+
+    .bar_head {
+        height: 60px;
+    }
+
+    .bar_head_logo {
+        height: 50px;
+        padding-left: 10px;
+    }
+
+    .bar_head_phone {
+        height: 60px;
+        font-size: 12px;
+        padding-top: 20px;
+        top: 0;
+    }
+
+    .bar_head_phone img {
+        display: none;
+    }
+
+    .textblock {
+        padding: 35px 0;
+    }
+
+    .textblock h3 {
+        font-size: 25px;
+        margin-bottom: 30px;
+    }
+
+    .credit h3 {
+        font-size: 25px;
+    }
+
+    .credit_benefis h3 {
+        font-size: 25px;
+    }
+
+    .credit_benefis img {
+        display: block;
+        margin: 10px auto;
+    }
+
+    .partners h3 {
+        font-size: 25px;
+    }
+
+    .bar_head_phone {
+        font-size: 12px;
+
+    }
+
+    .credit_block h3 {
+        font-size: 20px;
+    }
+
+    .credit_benefis a {
+        width: 100%;
+
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .first_block h3 {
+        font-size: 16px;
+        line-height: 30px;
+        padding: 0 5px;
+    }
+
+    .first_block span {
+        font-size: 18px;
+        width: 100%;
+        height: 70px;
+        padding-top: 15px;
+    }
+
+    .first_contacts_color {
+        display: none;
+    }
+
+    .first_contacts_form {
+        padding: 10px;
+        margin: 20px 0;
+    }
+
+    .first_contacts_form input[type=submit] {
+        width: 100%;
+        height: 70px;
+        font-size: 20px;
+        margin: 10px 0;
+    }
+
+    .first_contacts_form h3 {
+        font-size: 18px;
+    }
+
+    .first_contacts_form span {
+        font-size: 16px;
+    }
+
+    .content_thank h2 {
+        font-size: 30px;
+    }
+
+    .content_thank h3 {
+        font-size: 20px;
+    }
+
+}
+
+.textblock h3 {
+    font-family: 'montserrat_semi';
+    color: #003c69;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.textblock p {
+    font-family: 'montserrat_regular';
+    font-size: 18px;
+    color: #003c69;
+    margin-bottom: 50px;
+}
+
+.textblock h5 {
+    font-family: 'montserrat_light';
+    font-size: 16px;
+    color: #003c69;
+}
+
+.textblock h5 > strong {
+    font-family: 'montserrat_semi';
+    font-size: 20px;
+    color: #4c87f7;
+}
+
+.textblock h5 > span {
+    font-family: 'montserrat_semi';
+    font-size: 20px;
+    color: #1c6ecb;
+}
+
+.textblock h4 {
+    font-family: 'montserrat_regular';
+    font-size: 16px;
+    color: #003c69;
+    margin-top: 20px;
+}
+
+.textblock a {
+    display: block;
+    border: none;
+    font-family: 'montserrat_bold';
+    color: #fff;
+    border-radius: 5px;
+    -webkit-box-shadow: -1px 0px 32px -1px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: -1px 0px 32px -1px rgba(0, 0, 0, 0.4);
+    box-shadow: -1px 0px 32px -1px rgba(0, 0, 0, 0.4);
+    background: #7398f2; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(#7398f2, #4c87f7); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#7398f2, #4c87f7); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#7398f2, #4c87f7); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#7398f2, #4c87f7); /* Standard syntax */
+    width: 100%;
+    height: 70px;
+    font-size: 20px;
+    text-align: center;
+    line-height: 70px;
+    margin-top: 25px;
+
+}
+
+.textblock a:hover {
+    text-decoration: none;
+    color: #fff;
+}
+
+.partners {
+    border-bottom: 2px solid #dadada;
+}
+
+.partners h4 {
+    font-family: 'montserrat_semi';
+    font-size: 25px;
+    color: #2598f0;
+}
+
+.partners_block p {
+    font-family: 'montserrat_light';
+    font-size: 18px;
+    color: #3d3d3d;
+    text-align: justify;
+}
+
+.partners_block h4 {
+    font-family: 'montserrat_regular';
+    font-size: 20px;
+    color: #000;
+    text-align: left;
+}
+
+.partners_block h4 > strong {
+    font-family: 'montserrat_semi';
+    font-size: 25px;
+    color: #2598f0;
+    margin-top: 40px;
+}
+
+.panel-default {
+    border: none;
+}
+
+.panel-default > .panel-heading {
+    background-color: #2598f0;
+}
+
+.panel-title a {
+    font-family: 'montserrat_regular';
+    font-size: 20px;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.panel-title a:hover {
+    text-decoration: none;
+}
+
+.panel-body {
+    border: 1px solid #0099f1;
+    font-family: 'montserrat_light';
+    font-size: 16px;
+    color: #3d3d3d;
+}
+
+.panel-group .panel + .panel {
+    margin-top: 20px;
+}
+
+.panel-group {
+    margin-top: 50px;
+}
+
+.faq h3 {
+    font-family: 'montserrat_semi';
+    font-size: 50px;
+    color: #0067b4;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.faq img {
+    margin: 10px auto;
+    display: block;
+}
+
+.faq {
+    padding: 70px 0;
+}
+
+.more-less {
+    float: right;
+    color: #fff;
+    font-family: 'montserrat_semi';
+    font-size: 25px;
+}
+
+.credit_benefis span {
+    font-family: 'montserrat_semi';
+    font-size: 22px;
+    color: #000;
+    display: block;
+    text-align: center;
+    text-transform: uppercase;
+    margin-top: 15px;
+}
+
+.credit_arrow {
+    display: block;
+    margin-top: 50px;
+}
+
+.credit_benefis h3 {
+    font-family: 'montserrat_semi';
+    color: #003c69;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.credit_benefis {
+    background: #f4f7fa;
+    padding: 50px 0;
+}
+
+.benefis_img {
+    margin: 20px auto;
+    display: block;
+}
+
+.credit_benefis a {
+    display: block;
+    border: none;
+    font-family: 'montserrat_bold';
+    color: #fff;
+    border-radius: 5px;
+    -webkit-box-shadow: -1px 0px 32px -1px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: -1px 0px 32px -1px rgba(0, 0, 0, 0.4);
+    box-shadow: -1px 0px 32px -1px rgba(0, 0, 0, 0.4);
+    background: #7398f2; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(#7398f2, #4c87f7); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#7398f2, #4c87f7); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#7398f2, #4c87f7); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#7398f2, #4c87f7); /* Standard syntax */
+    width: 360px;
+    height: 70px;
+    font-size: 20px;
+    text-align: center;
+    line-height: 70px;
+    margin: 30px auto;
+
+}
+
+.credit_benefis a:hover {
+    text-decoration: none;
+}
+
+.last_social li {
+    display: inline-block;
+    list-style: none;
+    padding-right: 15px;
+}
