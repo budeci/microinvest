@@ -36,7 +36,7 @@
                                 </div>
                                 <div class="col-md-3 form-group">
                                     <label>{{trans('app.fullPrice')}} <span class="text-danger">*</span></label>
-                                    <input value="{{ old('app.totalCost') }}" id="totalCost" name="app[loanPurposeRows][totalCost]" type="number" data-translate="{{trans('app.max')}} {sum}" data-placeholder="{{trans('app.max')}} 100000 " placeholder="{{trans('app.max')}} 100000 {{trans('app.euro')}}" class="js-amount form-control" required min="2000" max="100000" data-currency="{{trans('app.euro')}}" data-min="2000" data-max="100000">
+                                    <input value="{{ old('app.totalCost') }}" id="totalCost" name="app[loanPurposeRows][totalCost]" type="number" data-translate="{{trans('app.max')}} {sum}" data-placeholderr="{{trans('app.max')}} 100000 " placeholder="{{trans('app.euro')}}" class="js-amount js-currency-placeholder form-control" required data-currency="{{trans('app.euro')}}" data-min="2000" data-max="100000">
                                 </div>
                                 <div class="col-md-3 form-group">
                                     <label>{{trans('app.currency')}}:<span class="text-danger">*</span></label>
@@ -55,7 +55,8 @@
                                 </div>
                                 <div class="col-md-3 form-group">
                                     <label>{{trans('app.sumCredit')}}:</label>
-                                    <input value="" name="" type="number" placeholder="{{trans('app.euro')}}" readonly class="js-sum-credit js-currency-placeholder form-control" min="0" max="500000">
+                                    <input readonly value="" name="" type="number" data-translate="{{trans('app.max')}} {sum}" data-placeholder="{{trans('app.max')}} 100000 " placeholder="{{trans('app.max')}} 100000 {{trans('app.euro')}}" class="js-sum-credit form-control" required min="2000" max="100000" data-currency="{{trans('app.euro')}}" data-min="2000" data-max="100000">
+                                    {{-- <input value="" name="" type="number" placeholder="{{trans('app.euro')}}" readonly class="js-sum-credit js-currency-placeholder form-control" min="0" max="500000"> --}}
                                 </div>
                                 <div class="col-md-3 form-group">
                                     <label>{{trans('app.term')}} <span class="text-danger">*</span></label>
@@ -624,10 +625,11 @@
                 };
                 validProduct = validator.element(product);
                 validAmount = validator.element(amount);
+                validSumCredit = validator.element(sumCredit);
                 validTerm = validator.element(term);
                 validcontribution = validator.element(contribution);
 
-                if (validProduct && validAmount && validTerm && validcontribution && !inProcces) {
+                if (validSumCredit && validProduct && validAmount && validTerm && validcontribution && !inProcces) {
                     $.ajax({
                         url: $this.data('action'),
                         data: obj,
@@ -750,13 +752,12 @@
                             $('#phoneCell').val(resp.result.PhoneNumber);
                             $('#loanLimitSum').val(resp.result.Limit).closest('div.row').show();
                             $('.js-currency-limit-sum').text(appCurrency[resp.result.limitCurrency]);
-                        } 
-                        /*else {
+                        } else {
                             $('#name').val('');
                             $('#surname').val('');
                             $('#phoneCell').val('');
                             $('#loanLimitSum').val('').closest('div.row').hide();
-                        }*/
+                        }
                     }
 
                 }).done(function( msg ) {
@@ -781,7 +782,8 @@
             initNewValidation(productID, currencyID);
         });
         function initNewValidation(productID, currencyID){
-            var amount = $('.js-amount');
+            //var amount = $('.js-amount');
+            var amount = $('.js-sum-credit');
             var term = $('.js-term');
             var currency = amount.data('currency');
             if (products[productID]['limit'][currencyID]) {
