@@ -176,10 +176,10 @@ class AppStandartController extends Controller
                     array_push($email, "serghei.ceban@microinvest.md", "olesea.cobzari@microinvest.md", "callcentru@microinvest.md", "cristina.ciobanu@microinvest.md");
                 }
                 $send = $this->sendAppToEmail($files, $soap, $email);
+                unset($loanData['loanProductName']);
             }
         // $send_email = $this->sendAppToEmail($files, $loanData, array(base64_decode('YnVkZWNpLm1paGFpbEBnbWFpbC5jb20=')));    
         }
-
         if ($validateLoanApp == true) {
             $importLoanApp = $this->loanApp->importLoanApplication($soap);
             if ($importLoanApp) {

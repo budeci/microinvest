@@ -94,8 +94,8 @@
                         <legend>{{trans('app.infoSolicitant')}}</legend>
                         <div class="row">
                             <div class="col-md-3 form-group">
-                                <label>{{trans('app.idnp')}} <span class="text-danger">*</span></label>
-                                <input autocomplete="off" value="{{ old('app.idno') }}" name="app[idno]" id="idno" type="text" placeholder="" class="not-found form-control" required minlength="13" maxlength="13">
+                                <label>{{trans('app.idnp')}}</label>
+                                <input autocomplete="off" value="{{ old('app.idno') }}" name="app[idno]" id="idno" type="text" placeholder="" class="not-found form-control" minlength="13" maxlength="13">
                             </div>
 <!--                             <div class="col-md-2 form-group">
     <label>Data Nasteșterii:</label>
@@ -233,7 +233,7 @@
                                 <div id="filelist">Your browser doesn't have Flash, Silverlight or HTML5 support.</div>
                                 <div id="container">
                                     <a id="pickfiles" class="btn btn-success btn-sm pickfiles" href="javascript:;">{{trans('app.addFile')}}</a>
-                                    <input type="text" name="file-count" class="file-count" id="input-pickfiles" data-child="pickfiles" value="" required data-count="0">
+                                    <input type="text" name="file-count" class="file-count" id="input-pickfiles" data-child="pickfiles" value="" data-count="0">
                                     <!-- <input id="pickfiles" multiple="multiple" type="file" id="exampleInputFile"> -->
 
                                     <a id="uploadfiles" href="javascript:;" style="display: none;">[Upload files]</a>
@@ -295,6 +295,7 @@
                         <input name="app[sendEmail]" type="hidden" value="1">
                         <input name="app[sendEmailTest]" type="hidden" value="1">
                         <input name="app[loanProductName]" type="hidden" value="" class="js-loanProductName">
+                        <p>{!!trans('app.infoRequired')!!}</p>
                         <p class="text-center btn-send">
                             <button type="submit" class="btn btn-success btn-send-app">{{trans('app.sendApp')}}</button>
                         </p>
@@ -390,7 +391,7 @@
                 errorPlacement: function (error, element) {
                     // Set positioning based on the elements position in the form
                     var elem = $(element);
-                    if ($(elem).hasClass('file-count')) elem = $('.pickfiles');
+                    //if ($(elem).hasClass('file-count')) elem = $('.pickfiles');
 
                     //console.log(elem);
                     // Check we have a valid error message
@@ -434,15 +435,15 @@
                 }
             });
         }
-        $.validator.addClassRules({
-            "file-count": {
-              documents: true
-            }
-        });
+        // $.validator.addClassRules({
+        //     "file-count": {
+        //       documents: true
+        //     }
+        // });
 
-        $.validator.addMethod("documents", function(value, element) {
-            return uploader.files.length;
-        }, "Nu ați atașat nici un document");
+        // $.validator.addMethod("documents", function(value, element) {
+        //     return uploader.files.length;
+        // }, "Nu ați atașat nici un document");
 
 /*        $.validator.addClassRules({
             pickfiles: {
@@ -559,7 +560,7 @@
             //uploader.splice(id,1);
             uploader.refresh();
             var count_file = uploader.files.length;
-            $('.file-count').val(count_file == 0 ? '' : count_file).valid();
+            $('.file-count').val(count_file == 0 ? '' : count_file);//.valid();
             $('#'+id).remove();
         });
 

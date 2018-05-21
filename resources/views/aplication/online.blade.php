@@ -88,8 +88,8 @@
                         <legend>{{trans('app.infoSolicitant')}}</legend>
                         <div class="row">
                             <div class="col-md-3 form-group">
-                                <label>{{trans('app.idnp')}}</label>
-                                <input autocomplete="off" value="{{ old('app.idno') }}" name="app[idno]" type="text" placeholder="" class="not-found form-control" minlength="13" maxlength="13">
+                                <label>{{trans('app.idnp')}} <span class="text-danger">*</span></label>
+                                <input autocomplete="off" value="{{ old('app.idno') }}" name="app[idno]" type="text" placeholder="" class="not-found form-control" minlength="13" maxlength="13" required>
                             </div>
 <!--                             <div class="col-md-2 form-group">
     <label>Data Nasteșterii:</label>
@@ -285,10 +285,11 @@
                                 <p class="bg-warning general-info help-block small showmore" data-show-lg="200" data-show-sm="100" data-show-xs="50"  data-moretext=">>> mai multe" data-lesstext="<<< mai puțin">{{trans('app.companyInfoApp')}}</p>
                             </div>
                         </div>
-                        <input name="app[applicationType]" type="hidden" value="4">
+                        <input name="app[applicationType]" type="hidden" value="4" required>
                         <input name="app[sendEmail]" type="hidden" value="1">
                         <input name="app[sendEmailTest]" type="hidden" value="1">
                         <input name="app[loanProductName]" type="hidden" value="" class="js-loanProductName">
+                        <p>{!!trans('app.infoRequired')!!}</p>
                         <p class="text-center btn-send">
                             <button type="submit" class="btn btn-success btn-send-app">{{trans('app.sendApp')}}</button>
                         </p>

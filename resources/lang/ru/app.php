@@ -93,4 +93,5 @@ return [
     'limitApproved'                 => 'Limita Aprobată',
     'linkAnunt'                     => 'Link-ul anunţului',
     'faq'                           => 'FAQ',    
+    'infoRequired'                  => 'Câmpurile marcate cu <span class="text-danger">*</span> sunt obligatorii',    
 ];

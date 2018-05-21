@@ -357,6 +357,7 @@
                         <input name="app[sendEmailTest]" type="hidden" value="1">
                         <input name="app[loanProductName]" type="hidden" value="" class="js-loanProductName">
                         <input name="app[loanPurposeRows][loanPurpose]" type="hidden" value="" class="">
+                        <p>{!!trans('app.infoRequired')!!}</p>
                         <p class="text-center btn-send">
                             <button type="submit" class="btn btn-success btn-send-app">{{trans('app.sendApp')}}</button>
                         </p>

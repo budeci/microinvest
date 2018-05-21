@@ -12,7 +12,7 @@ use Storage;
 use Validator;
 use Mail;
 use App\Repositories\AplicationRepository;
-class AppOnlineController extends Controller
+class AppOnlineController extends AppBasic
 {
     /**
      * @var loanApp
@@ -156,7 +156,8 @@ class AppOnlineController extends Controller
             }
         }
         $loanData['fileAttachmentSet'] = $attach;
-
+        $normalize = $this->applicationNormalize($loanData);
+        dd($normalize);
         $soap = array (
             'user'                   => '',
             'password'               => '',
@@ -174,7 +175,7 @@ class AppOnlineController extends Controller
                 if (isset($loanData['sendEmailTest'])) {
                     array_push($email, 'budeci.mihail@gmail.com');
                 }else{
-                    array_push($email, "serghei.ceban@microinvest.md", "olesea.cobzari@microinvest.md", "callcentru@microinvest.md", "cristina.ciobanu@microinvest.md");
+                    array_push($email, "budeci.mihail@gmail.com", "serghei.ceban@microinvest.md", "olesea.cobzari@microinvest.md", "callcentru@microinvest.md", "cristina.ciobanu@microinvest.md");
                 }
                 $send = $this->sendAppToEmail($files, $soap, $email);
             }
