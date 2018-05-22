@@ -36,7 +36,7 @@ Route::post('remove-file', [
 
 Route::get('get-app-file/{name?}/{id?}', [
     'as'   => 'get_app_file',
-    'uses' => 'AppBasic@getAppFile'
+    'uses' => 'AppCommun@getAppFile'
 ]);
 
 Route::post('sendFormEmail', [
@@ -48,28 +48,28 @@ Route::post('sendFormEmail', [
 Route::post('getClientData', [
     'as'         => 'getClientData',
     'middleware' => 'accept-ajax',
-    'uses'       => 'AppBasic@getClientData'
+    'uses'       => 'AppCommun@getClientData'
 ]);
 
 Route::post('getPaymentSchedule', [
     'as'         => 'getPaymentSchedule',
     'middleware' => 'accept-ajax',
-    'uses'       => 'AppBasic@getPaymentSchedule'
+    'uses'       => 'AppCommun@getPaymentSchedule'
 ]);
  Route::post('get-apps', [
     'as'         => 'get_apps',
     'middleware' => 'accept-ajax',
-    'uses'       => 'AppBasic@getApplications'
+    'uses'       => 'AppCommun@getApplications'
 ]);
 
 Route::multilingual(function(){
     Route::get('faq', [
         'as'   => 'faq',
-        'uses' => 'AppBasic@faq'
+        'uses' => 'AppCommun@faq'
     ]);
     Route::get('agreement', [
         'as'   => 'agreement',
-        'uses' => 'AppBasic@agreement'
+        'uses' => 'AppCommun@agreement'
     ]);
     Route::get('/', [
         'as'   => 'get_login',

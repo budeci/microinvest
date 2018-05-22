@@ -56,7 +56,7 @@ class AppOnlineController extends AppBasic
         // $date         = date("Y-m-d", strtotime((string)$loanDataInit['birthDate']));
         $loanData     = array_merge($loanDataInit,array(
                                 "id"                            => uniqid(),
-                                "dealerID"                      => $getOpenApp->dealer,
+                                "dealerID"                      => '',
                                 "contact"                       => $contact, 
                                 "applicationVariant"            => '4',
                                 "birthDate"                     => '0001-01-01',
@@ -137,7 +137,8 @@ class AppOnlineController extends AppBasic
                                     "propertyType" => ''              
                                 )
                         ));
-        unset($loanData['contactFirst'], $loanData['contactLast']);
+        $loanProductName = $loanData['loanProductName'];
+        unset($loanData['contactFirst'], $loanData['contactLast'], $loanData['loanProductName']);
 
         /*$validator = Validator::make($loanData, [
             'name'     => 'required|min:4|max:15',
@@ -157,11 +158,10 @@ class AppOnlineController extends AppBasic
         }
         $loanData['fileAttachmentSet'] = $attach;
         $normalize = $this->applicationNormalize($loanData);
-        dd($normalize);
         $soap = array (
             'user'                   => '',
             'password'               => '',
-            'unifiedLoanApplication' => $loanData
+            'unifiedLoanApplication' => $normalize
         );
         // dd($soap);
         //$this->getOpenApp->save();
@@ -177,6 +177,7 @@ class AppOnlineController extends AppBasic
                 }else{
                     array_push($email, "budeci.mihail@gmail.com", "serghei.ceban@microinvest.md", "olesea.cobzari@microinvest.md", "callcentru@microinvest.md", "cristina.ciobanu@microinvest.md");
                 }
+                $soap['unifiedLoanApplication']['loanProductName'] = $loanProductName;
                 $send = $this->sendAppToEmail($files, $soap, $email);
             }
         // $send_email = $this->sendAppToEmail($files, $loanData, array(base64_decode('YnVkZWNpLm1paGFpbEBnbWFpbC5jb20=')));    
