@@ -43,14 +43,14 @@
                                         $statusText = '';
                                     ?>
                                     
-                                    @if($item->applicationStateCode == '0')
+                                    @if(isset($item->applicationStateCode) && $item->applicationStateCode == '0')
                                         <?php
                                             $status = 'warning';
                                             $ico    = '<i class="text-warning fa fa-spinner fa-pulse fa-fw" aria-hidden="true"></i>';
                                             $loading = 'loading';
                                             $statusText = trans('app.appStatePending');
                                         ?>
-                                    @elseif($item->applicationStateCode == '1')
+                                    @elseif(isset($item->applicationStateCode) && $item->applicationStateCode == '1')
                                         <?php
                                             $status = 'success';
                                             $ico    = '<i class="text-success fa fa-check fa-fw" aria-hidden="true"></i>';
@@ -72,13 +72,13 @@
                                         @endif
                                     @endif
                                     <tr>
-                                        <td>{!!$ico!!} <input class="{{$loading}}" data-state-code="{{$item->applicationStateCode}}" type="hidden" value="{{$item->id}}"></td>
+                                        <td>{!!$ico!!} <input class="{{$loading}}" data-state-code="{{isset($item->applicationStateCode) ? $item->applicationStateCode : 2}}" type="hidden" value="{{$item->id}}"></td>
                                         <td>{{$item->date}}</td>
                                         <td>{{$item->client->name}}</td>
                                         <td>{{$item->loanAmount}} {{config('app.currency.'.$item->loanCurrency)}}</td>
                                         <td><p class="showmore comment" data-show-lg="20" data-moretext=">>>" data-lesstext="<<<">{{$item->loanPurpose}}</p></td>
                                         <td> 
-                                            @if($item->limitApproved)
+                                            @if(isset($item->limitApproved))
                                                 {{$item->limitApproved}} {{config('app.currency.'.$item->limitCurrency)}}
                                             @endif
                                         </td>

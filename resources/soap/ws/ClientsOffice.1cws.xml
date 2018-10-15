@@ -7,7 +7,7 @@
 		xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
 		xmlns:xsd="http://www.w3.org/2001/XMLSchema"
 		xmlns:xsd1="http://www.microinvest.md"
-		name="PaymentScheduleService"
+		name="ClientsOffice"
 		targetNamespace="http://www.microinvest.md">
 	<types>
 		<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -875,109 +875,105 @@
 							maxOccurs="unbounded"/>
 				</xs:sequence>
 			</xs:complexType>
-			<xs:element name="getPaymentSchedule">
+			<xs:element name="CheckIDNP">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="partnerID"
+						<xs:element name="IDNP"
 								type="xs:string"/>
-						<xs:element name="loanProductID"
-								type="xs:string"/>
-						<xs:element name="term"
-								type="xs:int"/>
-						<xs:element name="amount"
-								type="xs:double"/>
-						<xs:element name="currency"
+						<xs:element name="Telefon"
 								type="xs:string"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="getPaymentScheduleResponse">
+			<xs:element name="CheckIDNPResponse">
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element name="return"
-								type="tns:PaymentScheduleSet"/>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element name="getLoanProductSet">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="partnerID"
 								type="xs:string"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="getLoanProductSetResponse">
+			<xs:element name="GetLoanList">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="return"
-								type="tns:LoanProductSet"/>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-			<xs:element name="getLoanProductList">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="partnerID"
+						<xs:element name="IDNP"
 								type="xs:string"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="getLoanProductListResponse">
+			<xs:element name="GetLoanListResponse">
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element name="return"
-								type="tns:LoanProductSet"/>
+								type="xs:string"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="GetLoanSchedule">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="IDNP"
+								type="xs:string"/>
+						<xs:element name="LoanID"
+								type="xs:string"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="GetLoanScheduleResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="return"
+								type="xs:string"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
 		</xs:schema>
 	</types>
-	<message name="getPaymentScheduleRequestMessage">
+	<message name="CheckIDNPRequestMessage">
 		<part name="parameters"
-				element="tns:getPaymentSchedule"/>
+				element="tns:CheckIDNP"/>
 	</message>
-	<message name="getPaymentScheduleResponseMessage">
+	<message name="CheckIDNPResponseMessage">
 		<part name="parameters"
-				element="tns:getPaymentScheduleResponse"/>
+				element="tns:CheckIDNPResponse"/>
 	</message>
-	<message name="getLoanProductSetRequestMessage">
+	<message name="GetLoanListRequestMessage">
 		<part name="parameters"
-				element="tns:getLoanProductSet"/>
+				element="tns:GetLoanList"/>
 	</message>
-	<message name="getLoanProductSetResponseMessage">
+	<message name="GetLoanListResponseMessage">
 		<part name="parameters"
-				element="tns:getLoanProductSetResponse"/>
+				element="tns:GetLoanListResponse"/>
 	</message>
-	<message name="getLoanProductListRequestMessage">
+	<message name="GetLoanScheduleRequestMessage">
 		<part name="parameters"
-				element="tns:getLoanProductList"/>
+				element="tns:GetLoanSchedule"/>
 	</message>
-	<message name="getLoanProductListResponseMessage">
+	<message name="GetLoanScheduleResponseMessage">
 		<part name="parameters"
-				element="tns:getLoanProductListResponse"/>
+				element="tns:GetLoanScheduleResponse"/>
 	</message>
-	<portType name="PaymentScheduleServicePortType">
-		<operation name="getPaymentSchedule">
-			<input message="tns:getPaymentScheduleRequestMessage"/>
-			<output message="tns:getPaymentScheduleResponseMessage"/>
+	<portType name="ClientsOfficePortType">
+		<operation name="CheckIDNP">
+			<input message="tns:CheckIDNPRequestMessage"/>
+			<output message="tns:CheckIDNPResponseMessage"/>
 		</operation>
-		<operation name="getLoanProductSet">
-			<input message="tns:getLoanProductSetRequestMessage"/>
-			<output message="tns:getLoanProductSetResponseMessage"/>
+		<operation name="GetLoanList">
+			<input message="tns:GetLoanListRequestMessage"/>
+			<output message="tns:GetLoanListResponseMessage"/>
 		</operation>
-		<operation name="getLoanProductList">
-			<input message="tns:getLoanProductListRequestMessage"/>
-			<output message="tns:getLoanProductListResponseMessage"/>
+		<operation name="GetLoanSchedule">
+			<input message="tns:GetLoanScheduleRequestMessage"/>
+			<output message="tns:GetLoanScheduleResponseMessage"/>
 		</operation>
 	</portType>
-	<binding name="PaymentScheduleServiceSoapBinding"
-			type="tns:PaymentScheduleServicePortType">
+	<binding name="ClientsOfficeSoapBinding"
+			type="tns:ClientsOfficePortType">
 		<soapbind:binding style="document"
 				transport="http://schemas.xmlsoap.org/soap/http"/>
-		<operation name="getPaymentSchedule">
+		<operation name="CheckIDNP">
 			<soapbind:operation style="document"
-					soapAction="http://www.microinvest.md#PaymentScheduleService:getPaymentSchedule"/>
+					soapAction="http://www.microinvest.md#ClientsOffice:CheckIDNP"/>
 			<input>
 				<soapbind:body use="literal"/>
 			</input>
@@ -985,9 +981,9 @@
 				<soapbind:body use="literal"/>
 			</output>
 		</operation>
-		<operation name="getLoanProductSet">
+		<operation name="GetLoanList">
 			<soapbind:operation style="document"
-					soapAction="http://www.microinvest.md#PaymentScheduleService:getLoanProductSet"/>
+					soapAction="http://www.microinvest.md#ClientsOffice:GetLoanList"/>
 			<input>
 				<soapbind:body use="literal"/>
 			</input>
@@ -995,9 +991,9 @@
 				<soapbind:body use="literal"/>
 			</output>
 		</operation>
-		<operation name="getLoanProductList">
+		<operation name="GetLoanSchedule">
 			<soapbind:operation style="document"
-					soapAction="http://www.microinvest.md#PaymentScheduleService:getLoanProductList"/>
+					soapAction="http://www.microinvest.md#ClientsOffice:GetLoanSchedule"/>
 			<input>
 				<soapbind:body use="literal"/>
 			</input>
@@ -1006,13 +1002,13 @@
 			</output>
 		</operation>
 	</binding>
-	<binding name="PaymentScheduleServiceSoap12Binding"
-			type="tns:PaymentScheduleServicePortType">
+	<binding name="ClientsOfficeSoap12Binding"
+			type="tns:ClientsOfficePortType">
 		<soap12bind:binding style="document"
 				transport="http://schemas.xmlsoap.org/soap/http"/>
-		<operation name="getPaymentSchedule">
+		<operation name="CheckIDNP">
 			<soap12bind:operation style="document"
-					soapAction="http://www.microinvest.md#PaymentScheduleService:getPaymentSchedule"/>
+					soapAction="http://www.microinvest.md#ClientsOffice:CheckIDNP"/>
 			<input>
 				<soap12bind:body use="literal"/>
 			</input>
@@ -1020,9 +1016,9 @@
 				<soap12bind:body use="literal"/>
 			</output>
 		</operation>
-		<operation name="getLoanProductSet">
+		<operation name="GetLoanList">
 			<soap12bind:operation style="document"
-					soapAction="http://www.microinvest.md#PaymentScheduleService:getLoanProductSet"/>
+					soapAction="http://www.microinvest.md#ClientsOffice:GetLoanList"/>
 			<input>
 				<soap12bind:body use="literal"/>
 			</input>
@@ -1030,9 +1026,9 @@
 				<soap12bind:body use="literal"/>
 			</output>
 		</operation>
-		<operation name="getLoanProductList">
+		<operation name="GetLoanSchedule">
 			<soap12bind:operation style="document"
-					soapAction="http://www.microinvest.md#PaymentScheduleService:getLoanProductList"/>
+					soapAction="http://www.microinvest.md#ClientsOffice:GetLoanSchedule"/>
 			<input>
 				<soap12bind:body use="literal"/>
 			</input>
@@ -1041,18 +1037,18 @@
 			</output>
 		</operation>
 	</binding>
-	<service name="PaymentScheduleService">
-		<port name="PaymentScheduleServiceSoap"
-				binding="tns:PaymentScheduleServiceSoapBinding">
+	<service name="ClientsOffice">
+		<port name="ClientsOfficeSoap"
+				binding="tns:ClientsOfficeSoapBinding">
 			<documentation> 
 				<wsi:Claim xmlns:wsi="http://ws-i.org/schemas/conformanceClaim/"
 						conformsTo="http://ws-i.org/profiles/basic/1.1"/>
 			</documentation>
-			<soapbind:address location="http://212.56.200.131/MicroinvestWEB1C_copy1/ws/PaymentScheduleService.1cws"/>
+			<soapbind:address location="http://212.56.200.131/MicroinvestWEB1C_copy1/ws/ClientsOffice.1cws"/>
 		</port>
-		<port name="PaymentScheduleServiceSoap12"
-				binding="tns:PaymentScheduleServiceSoap12Binding">
-			<soap12bind:address location="http://212.56.200.131/MicroinvestWEB1C_copy1/ws/PaymentScheduleService.1cws"/>
+		<port name="ClientsOfficeSoap12"
+				binding="tns:ClientsOfficeSoap12Binding">
+			<soap12bind:address location="http://212.56.200.131/MicroinvestWEB1C_copy1/ws/ClientsOffice.1cws"/>
 		</port>
 	</service>
 </definitions>
