@@ -1,0 +1,1129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/"
+		xmlns:soap12bind="http://schemas.xmlsoap.org/wsdl/soap12/"
+		xmlns:soapbind="http://schemas.xmlsoap.org/wsdl/soap/"
+		xmlns:tns="http://www.microinvest.md"
+		xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"
+		xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+		xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+		xmlns:xsd1="http://www.microinvest.md"
+		name="PaymentScheduleService"
+		targetNamespace="http://www.microinvest.md">
+	<types>
+		<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+				xmlns:xs1="http://www.microinvest.md"
+				targetNamespace="http://www.microinvest.md"
+				attributeFormDefault="unqualified"
+				elementFormDefault="qualified">
+			<xs:complexType name="AccountStatement">
+				<xs:sequence>
+					<xs:element name="Date"
+							type="xs:date"/>
+					<xs:element name="IDNP"
+							type="xs:string"/>
+					<xs:element name="Txn_ID"
+							type="xs:string"/>
+					<xs:element name="Txn_type"
+							type="xs:string"/>
+					<xs:element name="Amount"
+							type="xs:decimal"/>
+					<xs:element name="LoanID"
+							type="xs:string"/>
+					<xs:element name="ServiceID"
+							type="xs:integer"/>
+					<xs:element name="AccountID"
+							type="xs:string"/>
+					<xs:element name="Comissions"
+							type="xs:decimal"/>
+					<xs:element name="ReceiverIDNP"
+							type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="AccountStatementSet">
+				<xs:sequence>
+					<xs:element name="AccountStatement"
+							type="tns:AccountStatement"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="ApplicationFile">
+				<xs:sequence>
+					<xs:element name="name"
+							type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="ApplicationFileSet">
+				<xs:sequence>
+					<xs:element name="applicationFile"
+							type="tns:ApplicationFile"
+							minOccurs="0"
+							maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="Branch">
+				<xs:sequence>
+					<xs:element name="id"
+							type="xs:string"/>
+					<xs:element name="code"
+							type="xs:string"/>
+					<xs:element name="name"
+							type="xs:string"/>
+					<xs:element name="address"
+							type="xs:string"/>
+					<xs:element name="branchContactsRows"
+							type="tns:BranchContactsRows"/>
+					<xs:element name="loanApplicationVisible"
+							type="xs:boolean"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="BranchContactsRow">
+				<xs:sequence>
+					<xs:element name="contact"
+							type="xs:string"/>
+					<xs:element name="email"
+							type="xs:string"/>
+					<xs:element name="phoneNumber"
+							type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="BranchContactsRows">
+				<xs:sequence>
+					<xs:element name="branchContactsRow"
+							type="tns:BranchContactsRow"
+							minOccurs="0"
+							maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="BranchSet">
+				<xs:sequence>
+					<xs:element name="branch"
+							type="tns:Branch"
+							minOccurs="0"
+							maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="Client">
+				<xs:sequence>
+					<xs:element name="id"
+							type="xs:string"/>
+					<xs:element name="code"
+							type="xs:string"/>
+					<xs:element name="name"
+							type="xs:string"/>
+					<xs:element name="surname"
+							type="xs:string"/>
+					<xs:element name="fiscalCode"
+							type="xs:string"/>
+					<xs:element name="IDSeries"
+							type="xs:string"/>
+					<xs:element name="IDNumber"
+							type="xs:string"/>
+					<xs:element name="BirthDate"
+							type="xs:date"/>
+					<xs:element name="PhoneNumber"
+							type="xs:string"/>
+					<xs:element name="webAccessGranted"
+							type="xs:boolean"/>
+					<xs:element name="user"
+							type="xs:string"/>
+					<xs:element name="password"
+							type="xs:string"/>
+					<xs:element name="Limit"
+							type="xs:decimal"/>
+					<xs:element name="limitCurrency"
+							type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="Client_eLeu">
+				<xs:sequence>
+					<xs:element name="idnp"
+							type="xs:string"/>
+					<xs:element name="numele"
+							type="xs:string"/>
+					<xs:element name="prenumele"
+							type="xs:string"/>
+					<xs:element name="NumarTelefon"
+							type="xs:string"/>
+					<xs:element name="Email"
+							type="xs:string"/>
+					<xs:element name="DataNasterii"
+							type="xs:date"/>
+					<xs:element name="AdresaDeDomiciliu"
+							type="xs:string"/>
+					<xs:element name="DocSeria"
+							type="xs:string"/>
+					<xs:element name="DocNumarul"
+							type="xs:string"/>
+					<xs:element name="DocDataEliberarii"
+							type="xs:date"/>
+					<xs:element name="DocEliberatDe"
+							type="xs:string"/>
+					<xs:element name="DocDataExpirarii"
+							type="xs:date"/>
+					<xs:element name="Activat"
+							type="xs:boolean"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="Client_eLeuSet">
+				<xs:sequence>
+					<xs:element name="Client_eLeu"
+							type="tns:Client_eLeu"
+							minOccurs="0"
+							maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="Dealer">
+				<xs:sequence>
+					<xs:element name="id"
+							type="xs:string"/>
+					<xs:element name="code"
+							type="xs:string"/>
+					<xs:element name="name"
+							type="xs:string"/>
+					<xs:element name="dealerCode"
+							type="xs:string"/>
+					<xs:element name="partnerBranch"
+							type="tns:PartnerBranch"/>
+					<xs:element name="accessLevel"
+							type="xs:decimal"/>
+					<xs:element name="user"
+							type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="DealerApplication">
+				<xs:sequence>
+					<xs:element name="id"
+							type="xs:string"/>
+					<xs:element name="marked"
+							type="xs:boolean"/>
+					<xs:element name="date"
+							type="xs:date"/>
+					<xs:element name="number"
+							type="xs:decimal"/>
+					<xs:element name="client"
+							type="tns:Client"/>
+					<xs:element name="loanAmount"
+							type="xs:decimal"/>
+					<xs:element name="loanCurrency"
+							type="xs:string"/>
+					<xs:element name="loanCurrencyCode"
+							type="xs:string"/>
+					<xs:element name="loanPurpose"
+							type="xs:string"/>
+					<xs:element name="comment"
+							type="xs:string"/>
+					<xs:element name="applicationState"
+							type="xs:string"/>
+					<xs:element name="dealer"
+							type="tns:Dealer"/>
+					<xs:element name="applicationFileDir"
+							type="xs:string"/>
+					<xs:element name="applicationFileSet"
+							type="tns:ApplicationFileSet"/>
+					<xs:element name="hasNewMessages"
+							type="xs:boolean"/>
+					<xs:element name="questionaryFilledIn"
+							type="xs:boolean"/>
+					<xs:element name="applicationStateCode"
+							type="xs:integer"/>
+					<xs:element name="limitApproved"
+							type="xs:integer"/>
+					<xs:element name="limitCurrency"
+							type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="DealerApplicationSet">
+				<xs:sequence>
+					<xs:element name="dealerApplication"
+							type="tns:DealerApplication"
+							minOccurs="0"
+							maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="EconomicSector">
+				<xs:sequence>
+					<xs:element name="id"
+							type="xs:string"/>
+					<xs:element name="code"
+							type="xs:string"/>
+					<xs:element name="name"
+							type="xs:string"/>
+					<xs:element name="loanApplicationVisible"
+							type="xs:boolean"/>
+					<xs:element name="isGroup"
+							type="xs:boolean"/>
+					<xs:element name="parent"
+							type="tns:EconomicSector"
+							nillable="true"/>
+					<xs:element name="marked"
+							type="xs:boolean"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="FileAttachment">
+				<xs:sequence>
+					<xs:element name="name"
+							type="xs:string"/>
+					<xs:element name="data"
+							type="xs:base64Binary"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="FileAttachmentSet">
+				<xs:sequence>
+					<xs:element name="fileAttachment"
+							type="tns:FileAttachment"
+							minOccurs="0"
+							maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="FinancialObligationsRow">
+				<xs:sequence>
+					<xs:element name="financialInstitution"
+							type="xs:string"/>
+					<xs:element name="purpose"
+							type="xs:string"/>
+					<xs:element name="totalDebt"
+							type="xs:decimal"/>
+					<xs:element name="monthlyPayment"
+							type="xs:decimal"/>
+					<xs:element name="currency"
+							type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="FinancialObligationsRows">
+				<xs:sequence>
+					<xs:element name="financialObligationsRow"
+							type="tns:FinancialObligationsRow"
+							minOccurs="0"
+							maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="IDList">
+				<xs:sequence>
+					<xs:element name="id"
+							type="xs:string"
+							minOccurs="0"
+							maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="Loan">
+				<xs:sequence>
+					<xs:element name="client"
+							type="tns:Client"/>
+					<xs:element name="id"
+							type="xs:string"/>
+					<xs:element name="loanNumber"
+							type="xs:string"/>
+					<xs:element name="loanAmount"
+							type="xs:decimal"/>
+					<xs:element name="loanCurrency"
+							type="xs:string"/>
+					<xs:element name="disbursementDate"
+							type="xs:date"/>
+					<xs:element name="finalPaymentPlaned"
+							type="xs:date"/>
+					<xs:element name="loanTerm"
+							type="xs:decimal"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="LoanApplicationInfo">
+				<xs:sequence>
+					<xs:element name="Name"
+							type="xs:string"/>
+					<xs:element name="Surname"
+							type="xs:string"/>
+					<xs:element name="LoanProductID"
+							type="xs:string"/>
+					<xs:element name="LoanID"
+							type="xs:string"/>
+					<xs:element name="Amount"
+							type="xs:decimal"/>
+					<xs:element name="LoanTerm"
+							type="xs:integer"/>
+					<xs:element name="Status"
+							type="xs:string"/>
+					<xs:element name="Comment"
+							type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="LoanInfo">
+				<xs:sequence>
+					<xs:element name="IDNP"
+							type="xs:string"/>
+					<xs:element name="Currency"
+							type="xs:string"/>
+					<xs:element name="LoanAmount"
+							type="xs:decimal"/>
+					<xs:element name="LoanID"
+							type="xs:string"/>
+					<xs:element name="Interest"
+							type="xs:decimal"/>
+					<xs:element name="Rate"
+							type="xs:decimal"/>
+					<xs:element name="Commission"
+							type="xs:decimal"/>
+					<xs:element name="Status"
+							type="xs:string"/>
+					<xs:element name="NextPaymentDate"
+							type="xs:date"/>
+					<xs:element name="Balance"
+							type="xs:decimal"/>
+					<xs:element name="DebtAmount"
+							type="xs:decimal"/>
+					<xs:element name="DisbursmentDate"
+							type="xs:date"/>
+					<xs:element name="DaysInArrears"
+							type="xs:integer"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="LoanInfoSet">
+				<xs:sequence>
+					<xs:element name="LoanInfo"
+							type="tns:LoanInfo"
+							minOccurs="0"
+							maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="LoanInformation">
+				<xs:sequence>
+					<xs:element name="date"
+							type="xs:date"/>
+					<xs:element name="loan"
+							type="tns:Loan"/>
+					<xs:element name="principalAmount"
+							type="xs:decimal"/>
+					<xs:element name="principalAmountDue"
+							type="xs:decimal"/>
+					<xs:element name="interestAmount"
+							type="xs:decimal"/>
+					<xs:element name="penaltyAmount"
+							type="xs:decimal"/>
+					<xs:element name="nextPaymentDate"
+							type="xs:date"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="LoanInformationSet">
+				<xs:sequence>
+					<xs:element name="loanInformation"
+							type="tns:LoanInformation"
+							minOccurs="0"
+							maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="LoanProduct">
+				<xs:sequence>
+					<xs:element name="id"
+							type="xs:string"/>
+					<xs:element name="code"
+							type="xs:decimal"/>
+					<xs:element name="name"
+							type="xs:string"/>
+					<xs:element name="marked"
+							type="xs:boolean"/>
+					<xs:element name="comment"
+							type="xs:string"/>
+					<xs:element name="public"
+							type="xs:boolean"/>
+					<xs:element name="loanProductData"
+							type="tns:LoanProductData"/>
+					<xs:element name="loanProductAccessRights"
+							type="tns:LoanProductAccessRights"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="LoanProductAccessRights">
+				<xs:sequence>
+					<xs:element name="loanProductAccessRightsRow"
+							type="tns:LoanProductAccessRightsRow"
+							minOccurs="0"
+							maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="LoanProductAccessRightsRow">
+				<xs:sequence>
+					<xs:element name="partner"
+							type="tns:Client"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="LoanProductCurrencySet">
+				<xs:sequence>
+					<xs:element name="LoanProductCurrencySetItem"
+							type="tns:LoanProductCurrencySetItem"
+							minOccurs="0"
+							maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="LoanProductCurrencySetItem">
+				<xs:sequence>
+					<xs:element name="Currency"
+							type="xs:string"/>
+					<xs:element name="amountMin"
+							type="xs:integer"/>
+					<xs:element name="amountMax"
+							type="xs:integer"/>
+					<xs:element name="termMin"
+							type="xs:integer"/>
+					<xs:element name="termMax"
+							type="xs:integer"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="LoanProductData">
+				<xs:sequence>
+					<xs:element name="loanProductDataRow"
+							type="tns:LoanProductDataRow"
+							minOccurs="0"
+							maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="LoanProductDataRow">
+				<xs:sequence>
+					<xs:element name="termIntervalStart"
+							type="xs:int"/>
+					<xs:element name="termIntervalEnd"
+							type="xs:int"/>
+					<xs:element name="amountIntervalStart"
+							type="xs:double"/>
+					<xs:element name="amountIntervalEnd"
+							type="xs:double"/>
+					<xs:element name="currency"
+							type="xs:string"/>
+					<xs:element name="comissionRate"
+							type="xs:double"/>
+					<xs:element name="comissionSum"
+							type="xs:double"/>
+					<xs:element name="includeComissionInLoanAmount"
+							type="xs:boolean"/>
+					<xs:element name="comissionMethod"
+							type="xs:unsignedInt"/>
+					<xs:element name="interestMethod"
+							type="xs:unsignedInt"/>
+					<xs:element name="discountComissionRate"
+							type="xs:double"/>
+					<xs:element name="discountComissionSum"
+							type="xs:double"/>
+					<xs:element name="interestRate"
+							type="xs:double"/>
+					<xs:element name="minInterestRate"
+							type="xs:double"/>
+					<xs:element name="penaltyRate"
+							type="xs:double"/>
+					<xs:element name="calculationDays"
+							type="xs:unsignedInt"/>
+					<xs:element name="administrationComissionRate"
+							type="xs:double"/>
+					<xs:element name="administrationComissionSum"
+							type="xs:double"/>
+					<xs:element name="gracePeriodAdministrationComission"
+							type="xs:int"/>
+					<xs:element name="methodAdministrationComission"
+							type="xs:unsignedInt"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="LoanProductSet">
+				<xs:sequence>
+					<xs:element name="loanProductSetItem"
+							type="tns:LoanProductSetItem"
+							minOccurs="0"
+							maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="LoanProductSetItem">
+				<xs:sequence>
+					<xs:element name="id"
+							type="xs:string"/>
+					<xs:element name="name"
+							type="xs:string"/>
+					<xs:element name="comment"
+							type="xs:string"/>
+					<xs:element name="LoanProductCurrencySet"
+							type="tns:LoanProductCurrencySet"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="LoanPurposeRow">
+				<xs:sequence>
+					<xs:element name="loanPurpose"
+							type="xs:string"/>
+					<xs:element name="modelSN"
+							type="xs:string"/>
+					<xs:element name="totalCost"
+							type="xs:decimal"/>
+					<xs:element name="clientContribution"
+							type="xs:decimal"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="LoanPurposeRows">
+				<xs:sequence>
+					<xs:element name="loanPurposeRow"
+							type="tns:LoanPurposeRow"
+							minOccurs="0"
+							maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="LoanSchedule">
+				<xs:sequence>
+					<xs:element name="Date"
+							type="xs:date"/>
+					<xs:element name="Principal"
+							type="xs:double"/>
+					<xs:element name="Sold"
+							type="xs:double"/>
+					<xs:element name="Interest"
+							type="xs:double"/>
+					<xs:element name="Commission"
+							type="xs:double"/>
+					<xs:element name="Total"/>
+					<xs:element name="Currency"
+							type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="LoanScheduleSet">
+				<xs:sequence>
+					<xs:element name="LoanSchedule"
+							type="tns:LoanSchedule"
+							minOccurs="0"
+							maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="Message">
+				<xs:sequence>
+					<xs:element name="applicationID"
+							type="xs:string"/>
+					<xs:element name="date"
+							type="xs:dateTime"/>
+					<xs:element name="senderID"
+							type="xs:string"/>
+					<xs:element name="senderName"
+							type="xs:string"/>
+					<xs:element name="text"
+							type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="MessageHeader">
+				<xs:sequence>
+					<xs:element name="applicationID"
+							type="xs:string"/>
+					<xs:element name="newMessages"
+							type="xs:int"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="MessageHeaderSet">
+				<xs:sequence>
+					<xs:element name="messageHeader"
+							type="tns:MessageHeader"
+							minOccurs="0"
+							maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="MessageSet">
+				<xs:sequence>
+					<xs:element name="message"
+							type="tns:Message"
+							minOccurs="0"
+							maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="MovablePropertyRow">
+				<xs:sequence>
+					<xs:element name="description"
+							type="xs:string"/>
+					<xs:element name="registrationNumber"
+							type="xs:string"/>
+					<xs:element name="propertyType"
+							type="xs:unsignedInt"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="MovablePropertyRows">
+				<xs:sequence>
+					<xs:element name="movablePropertyRow"
+							type="tns:MovablePropertyRow"
+							minOccurs="0"
+							maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="PartnerBranch">
+				<xs:sequence>
+					<xs:element name="id"
+							type="xs:string"/>
+					<xs:element name="code"
+							type="xs:string"/>
+					<xs:element name="name"
+							type="xs:string"/>
+					<xs:element name="partner"
+							type="tns:Client"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="PartnerQuestionary">
+				<xs:sequence>
+					<xs:element name="id"
+							type="xs:string"/>
+					<xs:element name="applicationID"
+							type="xs:string"/>
+					<xs:element name="communicationTypePhone"
+							type="xs:boolean"/>
+					<xs:element name="communicationTypeChat"
+							type="xs:boolean"/>
+					<xs:element name="gradeSpeedOfService"
+							type="xs:decimal"/>
+					<xs:element name="gradePoliteness"
+							type="xs:decimal"/>
+					<xs:element name="questionsAnswered"
+							type="xs:decimal"/>
+					<xs:element name="partnerComment"
+							type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="PartnerQuestionarySet">
+				<xs:sequence>
+					<xs:element name="partnerQuestionary"
+							type="tns:PartnerQuestionary"
+							minOccurs="0"
+							maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="PaymentSchedule">
+				<xs:sequence>
+					<xs:element name="areErrors"
+							type="xs:boolean"/>
+					<xs:element name="term"
+							type="xs:int"/>
+					<xs:element name="amount"
+							type="xs:double"/>
+					<xs:element name="currency"
+							type="xs:string"/>
+					<xs:element name="mounthlyPayment"
+							type="xs:double"/>
+					<xs:element name="totalAmount"
+							type="xs:double"/>
+					<xs:element name="IRR"
+							type="xs:double"/>
+					<xs:element name="paymentScheduleRows"
+							type="tns:PaymentScheduleRows"/>
+					<xs:element name="errorField"
+							type="xs:string"/>
+					<xs:element name="StartInterval"
+							type="xs:string"/>
+					<xs:element name="EndInterval"
+							type="xs:string"/>
+					<xs:element name="IRRMIN"
+							type="xs:double"/>
+					<xs:element name="mounthlyPaymentMIN"
+							type="xs:double"/>
+					<xs:element name="totalAmountMIN"
+							type="xs:double"/>
+					<xs:element name="useScale"
+							type="xs:boolean"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="PaymentScheduleRow">
+				<xs:sequence>
+					<xs:element name="scheduleDate"
+							type="xs:date"/>
+					<xs:element name="amountDisbursed"
+							type="xs:double"/>
+					<xs:element name="principalAmountDue"
+							type="xs:double"/>
+					<xs:element name="interestAmountDue"
+							type="xs:double"/>
+					<xs:element name="comissionAmountDue"
+							type="xs:double"/>
+					<xs:element name="totalAmountDue"
+							type="xs:double"/>
+					<xs:element name="currency"
+							type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="PaymentScheduleRows">
+				<xs:sequence>
+					<xs:element name="paymentScheduleRow"
+							type="tns:PaymentScheduleRow"
+							minOccurs="0"
+							maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="PaymentScheduleSet">
+				<xs:sequence>
+					<xs:element name="paymentSchedule"
+							type="tns:PaymentSchedule"
+							minOccurs="0"
+							maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="RealEstateRow">
+				<xs:sequence>
+					<xs:element name="description"
+							type="xs:string"/>
+					<xs:element name="propertyType"
+							type="xs:unsignedInt"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="RealEstateRows">
+				<xs:sequence>
+					<xs:element name="realEstateRow"
+							type="tns:RealEstateRow"
+							minOccurs="0"
+							maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="UnifiedLoanApplication">
+				<xs:sequence>
+					<xs:element name="id"
+							type="xs:string"/>
+					<xs:element name="applicationType"
+							type="xs:decimal"/>
+					<xs:element name="applicationVariant"
+							type="xs:decimal"/>
+					<xs:element name="loanProductID"
+							type="xs:string"/>
+					<xs:element name="name"
+							type="xs:string"/>
+					<xs:element name="surname"
+							type="xs:string"/>
+					<xs:element name="idno"
+							type="xs:string"/>
+					<xs:element name="birthDate"
+							type="xs:date"/>
+					<xs:element name="idSeries"
+							type="xs:string"/>
+					<xs:element name="idNumber"
+							type="xs:string"/>
+					<xs:element name="clientEducationType"
+							type="xs:decimal"/>
+					<xs:element name="clientLanguage"
+							type="xs:unsignedInt"/>
+					<xs:element name="sex"
+							type="xs:unsignedInt"/>
+					<xs:element name="socialStatus"
+							type="xs:unsignedInt"/>
+					<xs:element name="spouseName"
+							type="xs:string"/>
+					<xs:element name="spouseSurname"
+							type="xs:string"/>
+					<xs:element name="familyMembersOlder18"
+							type="xs:unsignedInt"/>
+					<xs:element name="familyMembersYonger18"
+							type="xs:unsignedInt"/>
+					<xs:element name="familyMembersWithoutIncome"
+							type="xs:unsignedInt"/>
+					<xs:element name="residenceRegionID"
+							type="xs:string"/>
+					<xs:element name="residenceCityID"
+							type="xs:string"/>
+					<xs:element name="residenceRegionType"
+							type="xs:unsignedInt"/>
+					<xs:element name="residenceStreet"
+							type="xs:string"/>
+					<xs:element name="residencePostalCode"
+							type="xs:string"/>
+					<xs:element name="residenceHouse"
+							type="xs:string"/>
+					<xs:element name="residenceApartment"
+							type="xs:unsignedInt"/>
+					<xs:element name="residencePropertyType"
+							type="xs:unsignedInt"/>
+					<xs:element name="officialResidenceRegionID"
+							type="xs:string"/>
+					<xs:element name="officialResidenceCityID"
+							type="xs:string"/>
+					<xs:element name="officialResidenceRegionType"
+							type="xs:unsignedInt"/>
+					<xs:element name="officialResidenceStreet"
+							type="xs:string"/>
+					<xs:element name="officialResidencePostalCode"
+							type="xs:string"/>
+					<xs:element name="officialResidenceHouse"
+							type="xs:string"/>
+					<xs:element name="officialResidenceApartment"
+							type="xs:unsignedInt"/>
+					<xs:element name="officialResidencePropertyType"
+							type="xs:unsignedInt"/>
+					<xs:element name="phoneHome"
+							type="xs:string"/>
+					<xs:element name="phoneCell"
+							type="xs:string"/>
+					<xs:element name="phoneWork"
+							type="xs:string"/>
+					<xs:element name="clientEmail"
+							type="xs:string"/>
+					<xs:element name="employer"
+							type="xs:string"/>
+					<xs:element name="employerFieldID"
+							type="xs:string"/>
+					<xs:element name="employerFieldDescription"
+							type="xs:string"/>
+					<xs:element name="employerAddress"
+							type="xs:string"/>
+					<xs:element name="employerClientPosition"
+							type="xs:unsignedInt"/>
+					<xs:element name="employerStartDate"
+							type="xs:date"/>
+					<xs:element name="employerEmployees"
+							type="xs:unsignedInt"/>
+					<xs:element name="employerCompanyTypeID"
+							type="xs:string"/>
+					<xs:element name="employerPhone"
+							type="xs:string"/>
+					<xs:element name="incomeSalary"
+							type="xs:decimal"/>
+					<xs:element name="incomePension"
+							type="xs:decimal"/>
+					<xs:element name="incomeDividents"
+							type="xs:decimal"/>
+					<xs:element name="incomeInterest"
+							type="xs:decimal"/>
+					<xs:element name="incomeRent"
+							type="xs:decimal"/>
+					<xs:element name="incomeMoneyTransfers"
+							type="xs:decimal"/>
+					<xs:element name="incomeOther"
+							type="xs:decimal"/>
+					<xs:element name="incomeOtherMembers"
+							type="xs:decimal"/>
+					<xs:element name="contact"
+							type="xs:string"/>
+					<xs:element name="contactEmployer"
+							type="xs:string"/>
+					<xs:element name="contactAddress"
+							type="xs:string"/>
+					<xs:element name="contactPhoneCell"
+							type="xs:string"/>
+					<xs:element name="contactPhoneHome"
+							type="xs:string"/>
+					<xs:element name="creditTerm"
+							type="xs:unsignedInt"/>
+					<xs:element name="paymentDay"
+							type="xs:unsignedInt"/>
+					<xs:element name="currency"
+							type="xs:string"/>
+					<xs:element name="branchID"
+							type="xs:string"/>
+					<xs:element name="dealerID"
+							type="xs:string"/>
+					<xs:element name="clientComment"
+							type="xs:string"/>
+					<xs:element name="partnerOrganization"
+							type="xs:string"/>
+					<xs:element name="partnerComment"
+							type="xs:string"/>
+					<xs:element name="loanPurposeRows"
+							type="tns:LoanPurposeRows"/>
+					<xs:element name="financialObligationsRows"
+							type="tns:FinancialObligationsRows"/>
+					<xs:element name="movablePropertyRows"
+							type="tns:MovablePropertyRows"/>
+					<xs:element name="realEstateRows"
+							type="tns:RealEstateRows"/>
+					<xs:element name="fileAttachmentSet"
+							type="tns:FileAttachmentSet"/>
+					<xs:element name="agreementPDprocessing"
+							type="xs:boolean"
+							nillable="true"/>
+					<xs:element name="agreementPDstorage"
+							type="xs:boolean"
+							nillable="true"/>
+					<xs:element name="agreementCreditHistoryAccess"
+							type="xs:boolean"
+							nillable="true"/>
+					<xs:element name="agreementCreditHistorySending"
+							type="xs:boolean"
+							nillable="true"/>
+					<xs:element name="Patronymic"
+							type="xs:string"/>
+					<xs:element name="contactPatronymic"
+							type="xs:string"/>
+					<xs:element name="Brand"
+							type="xs:string"/>
+					<xs:element name="Model"
+							type="xs:string"/>
+					<xs:element name="YearOfManufacture"
+							type="xs:string"/>
+					<xs:element name="PEP"
+							type="xs:boolean"
+							nillable="true"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="UnifiedLoanApplicationSet">
+				<xs:sequence>
+					<xs:element name="unifiedLoanApplication"
+							type="tns:UnifiedLoanApplication"
+							minOccurs="0"
+							maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="getPaymentSchedule">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="partnerID"
+								type="xs:string"/>
+						<xs:element name="loanProductID"
+								type="xs:string"/>
+						<xs:element name="term"
+								type="xs:int"/>
+						<xs:element name="amount"
+								type="xs:double"/>
+						<xs:element name="currency"
+								type="xs:string"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="getPaymentScheduleResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="return"
+								type="tns:PaymentScheduleSet"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="getLoanProductSet">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="partnerID"
+								type="xs:string"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="getLoanProductSetResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="return"
+								type="tns:LoanProductSet"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="getLoanProductList">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="partnerID"
+								type="xs:string"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="getLoanProductListResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="return"
+								type="tns:LoanProductSet"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:schema>
+	</types>
+	<message name="getPaymentScheduleRequestMessage">
+		<part name="parameters"
+				element="tns:getPaymentSchedule"/>
+	</message>
+	<message name="getPaymentScheduleResponseMessage">
+		<part name="parameters"
+				element="tns:getPaymentScheduleResponse"/>
+	</message>
+	<message name="getLoanProductSetRequestMessage">
+		<part name="parameters"
+				element="tns:getLoanProductSet"/>
+	</message>
+	<message name="getLoanProductSetResponseMessage">
+		<part name="parameters"
+				element="tns:getLoanProductSetResponse"/>
+	</message>
+	<message name="getLoanProductListRequestMessage">
+		<part name="parameters"
+				element="tns:getLoanProductList"/>
+	</message>
+	<message name="getLoanProductListResponseMessage">
+		<part name="parameters"
+				element="tns:getLoanProductListResponse"/>
+	</message>
+	<portType name="PaymentScheduleServicePortType">
+		<operation name="getPaymentSchedule">
+			<input message="tns:getPaymentScheduleRequestMessage"/>
+			<output message="tns:getPaymentScheduleResponseMessage"/>
+		</operation>
+		<operation name="getLoanProductSet">
+			<input message="tns:getLoanProductSetRequestMessage"/>
+			<output message="tns:getLoanProductSetResponseMessage"/>
+		</operation>
+		<operation name="getLoanProductList">
+			<input message="tns:getLoanProductListRequestMessage"/>
+			<output message="tns:getLoanProductListResponseMessage"/>
+		</operation>
+	</portType>
+	<binding name="PaymentScheduleServiceSoapBinding"
+			type="tns:PaymentScheduleServicePortType">
+		<soapbind:binding style="document"
+				transport="http://schemas.xmlsoap.org/soap/http"/>
+		<operation name="getPaymentSchedule">
+			<soapbind:operation style="document"
+					soapAction="http://www.microinvest.md#PaymentScheduleService:getPaymentSchedule"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="getLoanProductSet">
+			<soapbind:operation style="document"
+					soapAction="http://www.microinvest.md#PaymentScheduleService:getLoanProductSet"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="getLoanProductList">
+			<soapbind:operation style="document"
+					soapAction="http://www.microinvest.md#PaymentScheduleService:getLoanProductList"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+	</binding>
+	<binding name="PaymentScheduleServiceSoap12Binding"
+			type="tns:PaymentScheduleServicePortType">
+		<soap12bind:binding style="document"
+				transport="http://schemas.xmlsoap.org/soap/http"/>
+		<operation name="getPaymentSchedule">
+			<soap12bind:operation style="document"
+					soapAction="http://www.microinvest.md#PaymentScheduleService:getPaymentSchedule"/>
+			<input>
+				<soap12bind:body use="literal"/>
+			</input>
+			<output>
+				<soap12bind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="getLoanProductSet">
+			<soap12bind:operation style="document"
+					soapAction="http://www.microinvest.md#PaymentScheduleService:getLoanProductSet"/>
+			<input>
+				<soap12bind:body use="literal"/>
+			</input>
+			<output>
+				<soap12bind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="getLoanProductList">
+			<soap12bind:operation style="document"
+					soapAction="http://www.microinvest.md#PaymentScheduleService:getLoanProductList"/>
+			<input>
+				<soap12bind:body use="literal"/>
+			</input>
+			<output>
+				<soap12bind:body use="literal"/>
+			</output>
+		</operation>
+	</binding>
+	<service name="PaymentScheduleService">
+		<port name="PaymentScheduleServiceSoap"
+				binding="tns:PaymentScheduleServiceSoapBinding">
+			<documentation> 
+				<wsi:Claim xmlns:wsi="http://ws-i.org/schemas/conformanceClaim/"
+						conformsTo="http://ws-i.org/profiles/basic/1.1"/>
+			</documentation>
+			<soapbind:address location="http://212.56.200.131/MicroinvestWEB1C_copy2/ws/PaymentScheduleService.1cws"/>
+		</port>
+		<port name="PaymentScheduleServiceSoap12"
+				binding="tns:PaymentScheduleServiceSoap12Binding">
+			<soap12bind:address location="http://212.56.200.131/MicroinvestWEB1C_copy2/ws/PaymentScheduleService.1cws"/>
+		</port>
+	</service>
+</definitions>
