@@ -123,10 +123,6 @@
                                 <label>{{trans('app.surname')}} <span class="text-danger">*</span></label>
                                 <input value="{{ old('app.surname') }}" id="surname" name="app[surname]" type="text" placeholder="" class="not-found form-control" required minlength="3" maxlength="30">
                             </div>
-{{--                              <div class="col-md-3 form-group">
-                                <label>{{trans('app.patronymic')}} <span class="text-danger">*</span></label>
-                                <input value="{{ old('app.Patronymic') }}" id="surname" name="app[Patronymic]" type="text" placeholder="" class="not-found form-control" required minlength="3" maxlength="30">
-                            </div>  --}}
                             <div class="col-md-3 form-group">
                                 <label>{{trans('app.gsm')}} <span class="text-danger">*</span></label>
                                 <input value="{{ old('app.phoneCell') }}" id="phoneCell" name="app[phoneCell]" type="text" placeholder="" class="not-found form-control" required minlength="6" maxlength="13">
@@ -176,25 +172,6 @@
                                     @endforeach
                                 </select>
                             </div>
-{{--                              
-                            <div class="col-md-3 form-group">
-                                <label>{{trans('app.loanPurpose')}} <span class="text-danger">*</span></label>
-                                <input value="{{ old('app.loanPurpose') }}" name="app[loanPurposeRows][loanPurpose]" type="text" placeholder="" class="form-control" required minlength="3" maxlength="100">
-                            </div>
-                            <div class="col-md-3 form-group">
-                                <label>{{trans('app.brand')}}:</label>
-                                <input value="{{ old('app.Brand') }}" name="app[Brand]" type="text" placeholder="" class="form-control" minlength="3" maxlength="100">
-                            </div>
-                           
-                            <div class="col-md-3 form-group">
-                                <label>{{trans('app.model')}}:</label>
-                                <input value="{{ old('app.Model') }}" name="app[Model]" type="text" placeholder="" class="form-control" minlength="3" maxlength="100">
-                            </div>
-                            <div class="col-md-3 form-group">
-                                <label>{{trans('app.yearAuto')}}:</label>
-                                <input value="{{ old('app.YearOfManufacture') }}" name="app[YearOfManufacture]" type="number" placeholder="" class="form-control" minlength="3" maxlength="100">
-                            </div>
---}}
                         </div>
 
                         <legend class="guarantor guarantor-none">Datele fidejusorilor</legend>
