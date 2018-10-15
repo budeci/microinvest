@@ -15,36 +15,6 @@
 				targetNamespace="http://www.microinvest.md"
 				attributeFormDefault="unqualified"
 				elementFormDefault="qualified">
-			<xs:complexType name="AccountStatement">
-				<xs:sequence>
-					<xs:element name="Date"
-							type="xs:date"/>
-					<xs:element name="IDNP"
-							type="xs:string"/>
-					<xs:element name="Txn_ID"
-							type="xs:string"/>
-					<xs:element name="Txn_type"
-							type="xs:string"/>
-					<xs:element name="Amount"
-							type="xs:decimal"/>
-					<xs:element name="LoanID"
-							type="xs:string"/>
-					<xs:element name="ServiceID"
-							type="xs:integer"/>
-					<xs:element name="AccountID"
-							type="xs:string"/>
-					<xs:element name="Comissions"
-							type="xs:decimal"/>
-					<xs:element name="ReceiverIDNP"
-							type="xs:string"/>
-				</xs:sequence>
-			</xs:complexType>
-			<xs:complexType name="AccountStatementSet">
-				<xs:sequence>
-					<xs:element name="AccountStatement"
-							type="tns:AccountStatement"/>
-				</xs:sequence>
-			</xs:complexType>
 			<xs:complexType name="ApplicationFile">
 				<xs:sequence>
 					<xs:element name="name"
@@ -129,8 +99,6 @@
 							type="xs:string"/>
 					<xs:element name="Limit"
 							type="xs:decimal"/>
-					<xs:element name="limitCurrency"
-							type="xs:string"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="Client_eLeu">
@@ -223,12 +191,6 @@
 							type="xs:boolean"/>
 					<xs:element name="questionaryFilledIn"
 							type="xs:boolean"/>
-					<xs:element name="applicationStateCode"
-							type="xs:integer"/>
-					<xs:element name="limitApproved"
-							type="xs:integer"/>
-					<xs:element name="limitCurrency"
-							type="xs:string"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="DealerApplicationSet">
@@ -685,6 +647,10 @@
 							type="xs:double"/>
 					<xs:element name="useScale"
 							type="xs:boolean"/>
+					<xs:element name="EffectiveInterestRate_EIR"
+							type="xs:double"/>
+					<xs:element name="MonthlyComissionForLoanAdministration"
+							type="xs:double"/>
 				</xs:sequence>
 			</xs:complexType>
 			<xs:complexType name="PaymentScheduleRow">
@@ -897,19 +863,6 @@
 							type="xs:boolean"
 							nillable="true"/>
 					<xs:element name="agreementCreditHistorySending"
-							type="xs:boolean"
-							nillable="true"/>
-					<xs:element name="Patronymic"
-							type="xs:string"/>
-					<xs:element name="contactPatronymic"
-							type="xs:string"/>
-					<xs:element name="Brand"
-							type="xs:string"/>
-					<xs:element name="Model"
-							type="xs:string"/>
-					<xs:element name="YearOfManufacture"
-							type="xs:string"/>
-					<xs:element name="PEP"
 							type="xs:boolean"
 							nillable="true"/>
 				</xs:sequence>
@@ -1277,11 +1230,11 @@
 				<wsi:Claim xmlns:wsi="http://ws-i.org/schemas/conformanceClaim/"
 						conformsTo="http://ws-i.org/profiles/basic/1.1"/>
 			</documentation>
-			<soapbind:address location="http://212.56.200.131/MicroinvestWEB1C_copy2/ws/UnifiedLoanApplicationService.1cws"/>
+			<soapbind:address location="http://212.56.200.131/MicroinvestWEB1C_copy1/ws/UnifiedLoanApplicationService.1cws"/>
 		</port>
 		<port name="UnifiedLoanApplicationServiceSoap12"
 				binding="tns:UnifiedLoanApplicationServiceSoap12Binding">
-			<soap12bind:address location="http://212.56.200.131/MicroinvestWEB1C_copy2/ws/UnifiedLoanApplicationService.1cws"/>
+			<soap12bind:address location="http://212.56.200.131/MicroinvestWEB1C_copy1/ws/UnifiedLoanApplicationService.1cws"/>
 		</port>
 	</service>
 </definitions>

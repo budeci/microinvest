@@ -12,9 +12,9 @@
             <th style="vertical-align:middle;border:1px solid #c0c0c0;padding:5px">Condițiile împrumutului</th>
             <td style="vertical-align:middle;border:1px solid #c0c0c0;padding:5px">
                 <p>Produsul: {{$app['unifiedLoanApplication']['loanProductName']}}</p>
-                <p>Suma: {{$app['unifiedLoanApplication']['loanPurposeRows']['totalCost']}} MDL</p>
+                <p>Suma: {{$app['unifiedLoanApplication']['loanPurposeRows'][0]['totalCost']}} MDL</p>
                 <p>Termenul (luni): {{$app['unifiedLoanApplication']['creditTerm']}}</p>
-                <p>Descrieţi scopul: {{$app['unifiedLoanApplication']['loanPurposeRows']['loanPurpose']}}</p>
+                <p>Descrieţi scopul: {{$app['unifiedLoanApplication']['loanPurposeRows'][0]['loanPurpose']}}</p>
             </td>
         </tr>
         <tr>
