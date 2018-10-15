@@ -53,7 +53,7 @@ class PaymentScheduleService
             $loanProductSetItem = $getLoanProduct->return->loanProductSetItem;
             if (count($loanProductSetItem) == 1) {
                 $loanProduct[$loanProductSetItem->id] = (array)$loanProductSetItem;
-                if ($loanProductSetItem->LoanProductCurrencySet) {
+                if (isset($loanProductSetItem->LoanProductCurrencySet)) {
                     if(count($loanProductSetItem->LoanProductCurrencySet->LoanProductCurrencySetItem) == 1){
                         $loanProduct[$loanProductSetItem->id]['limit'][$loanProductSetItem->LoanProductCurrencySet->LoanProductCurrencySetItem->Currency] = (array)$loanProductSetItem->LoanProductCurrencySet->LoanProductCurrencySetItem;
                     } else {
@@ -66,7 +66,7 @@ class PaymentScheduleService
             }else{
                 foreach ($loanProductSetItem as $data){
                     $loanProduct[$data->id] = (array)$data;
-                    if ($data->LoanProductCurrencySet) {
+                    if (isset($data->LoanProductCurrencySet)) {
                         if(count($data->LoanProductCurrencySet->LoanProductCurrencySetItem) == 1){
                             $loanProduct[$data->id]['limit'][$data->LoanProductCurrencySet->LoanProductCurrencySetItem->Currency] = (array)$data->LoanProductCurrencySet->LoanProductCurrencySetItem;
                         } else {
