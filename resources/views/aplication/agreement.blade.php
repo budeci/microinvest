@@ -238,11 +238,10 @@
                                 showMore(tr.find('.showmore'));
 
                                 setTimeout(function(){
-                                        $('tr.animation-color').animate({
-                                            backgroundColor: "#fff",
-                                            color: "#292b2c"
-                                        }, 1500);
-
+                                    $('tr.animation-color').animate({
+                                        backgroundColor: "#fff",
+                                        color: "#292b2c"
+                                    }, 1500);
                                 }, 3000);
 
                             }
@@ -250,10 +249,8 @@
                     }
                 }).done(function( msg ) {
                     inProcces = false;
-                    
                 });
             }
-
         },30000);
     });
     </script>
