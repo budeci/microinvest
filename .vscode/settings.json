@@ -3,5 +3,6 @@
         ".git": true,
         "bin": true,
         "obj": true
-    }
+    },
+    "php.validate.executablePath": "C:\\xampp\\php\\php.exe",
 }

@@ -94,7 +94,6 @@ class AppBasic extends Controller
                     "totalCost"             => 'int',
                     "clientContribution"    => 'int',
                     "modelSN"               => 'string',
-                    
                 ),
                 "financialObligationsRows"      => array (
                     "financialInstitution" => 'string',
