@@ -36,7 +36,7 @@
                                 </div>
                                 <div class="col-md-3 form-group">
                                     <label>{{trans('app.fullPrice')}} <span class="text-danger">*</span></label>
-                                    <input value="{{ old('app.totalCost') }}" id="totalCost" name="app[loanPurposeRows][totalCost]" type="number" data-translate="{{trans('app.max')}} {sum}" data-placeholderr="{{trans('app.max')}} 100000 " placeholder="{{trans('app.euro')}}" class="js-amount js-currency-placeholder form-control" required data-currency="{{trans('app.euro')}}" data-min="2000" data-max="100000">
+                                    <input value="{{ old('app.totalCost') }}" id="totalCost" name="app[loanPurposeRows][0][totalCost]" type="number" data-translate="{{trans('app.max')}} {sum}" data-placeholderr="{{trans('app.max')}} 100000 " placeholder="{{trans('app.euro')}}" class="js-amount js-currency-placeholder form-control" required data-currency="{{trans('app.euro')}}" data-min="2000" data-max="100000">
                                 </div>
                                 <div class="col-md-3 form-group">
                                     <label>{{trans('app.currency')}}:<span class="text-danger">*</span></label>
@@ -51,7 +51,7 @@
                             <div class="row">
                                 <div class="col-md-3 form-group">
                                     <label>{{trans('app.clientContribution')}}:</label>
-                                    <input value="{{ old('app.clientContribution') }}" name="app[loanPurposeRows][clientContribution]" type="number" placeholder="{{trans('app.euro')}}" class="js-currency-placeholder js-contribution form-control" required min="0" max="500000">
+                                    <input value="{{ old('app.clientContribution') }}" name="app[loanPurposeRows][0][clientContribution]" type="number" placeholder="{{trans('app.euro')}}" class="js-currency-placeholder js-contribution form-control" required min="0" max="500000">
                                 </div>
                                 <div class="col-md-3 form-group">
                                     <label>{{trans('app.sumCredit')}}:</label>
@@ -356,7 +356,8 @@
                         <input name="app[sendEmail]" type="hidden" value="1">
                         <input name="app[sendEmailTest]" type="hidden" value="1">
                         <input name="app[loanProductName]" type="hidden" value="" class="js-loanProductName">
-                        <input name="app[loanPurposeRows][loanPurpose]" type="hidden" value="" class="">
+                        <input name="app[loanPurposeRows][0][loanPurpose]" type="hidden" value="" class="">
+                        <input name="app[loanPurposeRows][0][modelSN]" type="hidden" value="">
                         <p>{!!trans('app.infoRequired')!!}</p>
                         <p class="text-center btn-send">
                             <button type="submit" class="btn btn-success btn-send-app">{{trans('app.sendApp')}}</button>

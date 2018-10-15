@@ -35,7 +35,7 @@
                             </div>
                             <div class="col-md-3 form-group">
                                 <label>{{trans('app.totalCost')}} <span class="text-danger">*</span></label>
-                                <input value="{{ old('app.totalCost') }}" id="totalCost" name="app[loanPurposeRows][totalCost]" type="number" data-translate="{{trans('app.max')}} {sum}" data-placeholder="{{trans('app.max')}} 500000 " placeholder="{{trans('app.max')}} 500000 {{trans('app.lei')}}" class="js-amount form-control" required min="2000" max="500000" data-currency="{{trans('app.lei')}}" data-min="2000" data-max="500000">
+                                <input value="{{ old('app.totalCost') }}" id="totalCost" name="app[loanPurposeRows][0][totalCost]" type="number" data-translate="{{trans('app.max')}} {sum}" data-placeholder="{{trans('app.max')}} 500000 " placeholder="{{trans('app.max')}} 500000 {{trans('app.lei')}}" class="js-amount form-control" required min="2000" max="500000" data-currency="{{trans('app.lei')}}" data-min="2000" data-max="500000">
                             </div>
                             <div class="col-md-3 form-group">
                                 <label>{{trans('app.term')}} <span class="text-danger">*</span></label>
@@ -135,7 +135,7 @@
                         <div class="row">
 <div class="col-md-3 form-group">
     <label>{{trans('app.loanPurpose')}} <span class="text-danger">*</span></label>
-    <input value="{{ old('app.loanPurpose') }}" name="app[loanPurposeRows][loanPurpose]" type="text" placeholder="" class="form-control" required minlength="3" maxlength="100">
+    <input value="{{ old('app.loanPurpose') }}" name="app[loanPurposeRows][0][loanPurpose]" type="text" placeholder="" class="form-control" required minlength="3" maxlength="100">
 </div>
 <!-- <div class="col-md-2 form-group">
     <label>Suma:</label>
@@ -147,7 +147,7 @@
 </div> -->
                             <div class="col-md-3 form-group">
                                 <label>{{trans('app.clientContribution')}}</label>
-                                <input value="{{ old('app.clientContribution') }}" name="app[loanPurposeRows][clientContribution]" type="number" placeholder="" class="form-control" min="0" max="500000">
+                                <input value="{{ old('app.clientContribution') }}" name="app[loanPurposeRows][0][clientContribution]" type="number" placeholder="" class="form-control" min="0" max="500000">
                             </div>
                         </div>
                         <div class="row" style="display: none;">
@@ -275,6 +275,7 @@
                                 <p class="bg-warning general-info help-block small showmore" data-show-lg="200" data-show-sm="100" data-show-xs="50"  data-moretext=">>> mai multe" data-lesstext="<<< mai puțin">{{trans('app.companyInfoApp')}}</p>
                             </div>
                         </div>
+                        <input name="app[loanPurposeRows][0][modelSN]" type="hidden" value="">
                         <input name="app[applicationType]" type="hidden" value="1">
                         <input name="app[sendEmail]" type="hidden" value="1">
                         <input name="app[sendEmailTest]" type="hidden" value="1">
