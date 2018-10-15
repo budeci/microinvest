@@ -186,7 +186,7 @@ class AppBusinessController extends Controller
                 }
                 $send = $this->sendAppToEmail($files, $soap, $email);
             }
-        // $send_email = $this->sendAppToEmail($files, $loanData, array(base64_decode('YnVkZWNpLm1paGFpbEBnbWFpbC5jb20=')));    
+            // $send_email = $this->sendAppToEmail($files, $loanData, array(base64_decode('YnVkZWNpLm1paGFpbEBnbWFpbC5jb20=')));    
         }
 
         if ($validateLoanApp == true) {
