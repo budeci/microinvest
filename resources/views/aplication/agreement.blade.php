@@ -193,13 +193,13 @@
                         $.each(response.result, function(index, app) {
                             var curentApp = $('input[value="'+app.id+'"]'), tr = '',files = '';
 
-                            if (app.applicationStateCode != curentApp.data('state-code')) {
+                            if (app.applicationStateCode && app.applicationStateCode != curentApp.data('state-code')) {
 
-                                if(app.applicationStateCode == '0'){
+                                if(app.applicationStateCode && app.applicationStateCode == '0'){
                                     status = 'warning';
                                     color  = '#f0ad4e';
                                     ico    = '<i class="text-warning fa fa-spinner fa-pulse fa-fw" aria-hidden="true"></i>';
-                                }else if(app.applicationStateCode == '1'){
+                                }else if(app.applicationStateCode && app.applicationStateCode == '1'){
                                     status = 'success';
                                     color  = '#5cb85c';
                                     ico    = '<i class="text-success fa fa-check fa-fw" aria-hidden="true"></i>';
@@ -220,7 +220,7 @@
                                 $.each(appFiles, function(index, file) {
                                     files += "<a href="+route+'/'+file.name+'/'+app.id+" title="+file.name+" class='showmore file' data-show-lg='10' data-moretext='' data-lesstext=''>"+file.name+"</a><br>";
                                 });
-                                html = "<td>"+ico+"<input type='hidden' data-state-code="+app.applicationStateCode+" value="+app.id+"></td>"+
+                                html = "<td>"+ico+"<input type='hidden' data-state-code="+app.applicationStateCode ? app.applicationStateCode : 2+" value="+app.id+"></td>"+
                                         "<td>"+app.date+"</td>"+
                                         "<td>"+app.client.name+"</td>"+
                                         "<td>"+app.loanAmount+" "+app.loanCurrencyCode+"</td>"+
